@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DFEB94A-4A27-4E1A-952D-A5596B6F1D25}</ProjectGuid>
+    <ProjectGuid>{D966DD24-DE0F-47A8-8CAB-757D8057CCBC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CassandraWinFormsSample</RootNamespace>
-    <AssemblyName>CassandraWinFormsSample</AssemblyName>
+    <RootNamespace>PlanArt</RootNamespace>
+    <AssemblyName>PlanArt</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
