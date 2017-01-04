@@ -1,0 +1,16 @@
+CREATE TABLE "Artist" (
+    email text,
+    name text,
+    lastname text,
+    nickname text,
+    city text,
+    festivals map<text, text>,
+    calendar map<timestamp, blob>,
+    artists map<text, text>,
+    PRIMARY KEY (email)
+)
+WITH
+  bloom_filter_fp_chance=0.01
+  AND compaction={ 'class' : 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy' }
+  AND compression={ 'sstable_compression' : 'org.apache.cassandra.io.compress.LZ4Compressor' }
+  AND caching={'keys':'ALL', 'rows_per_partition':'NONE'};
