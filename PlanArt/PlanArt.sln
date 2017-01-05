@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanArt", "PlanArt.csproj", "{D966DD24-DE0F-47A8-8CAB-757D8057CCBC}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanArtMVC", "..\PlanArtMVC\PlanArtMVC.csproj", "{C23A5121-A026-4D11-8456-52929ED53623}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanArtMVC", "..\PlanArtMVC\PlanArtMVC.csproj", "{EEC79E4F-ED61-410C-89D5-558F8C133C40}"
+>>>>>>> origin/master
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,17 @@ Global
 		{D966DD24-DE0F-47A8-8CAB-757D8057CCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D966DD24-DE0F-47A8-8CAB-757D8057CCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D966DD24-DE0F-47A8-8CAB-757D8057CCBC}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{C23A5121-A026-4D11-8456-52929ED53623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C23A5121-A026-4D11-8456-52929ED53623}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C23A5121-A026-4D11-8456-52929ED53623}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C23A5121-A026-4D11-8456-52929ED53623}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{EEC79E4F-ED61-410C-89D5-558F8C133C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC79E4F-ED61-410C-89D5-558F8C133C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC79E4F-ED61-410C-89D5-558F8C133C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC79E4F-ED61-410C-89D5-558F8C133C40}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> origin/master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

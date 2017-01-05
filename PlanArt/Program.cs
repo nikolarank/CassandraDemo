@@ -35,7 +35,8 @@ namespace PlanArt
             festivalsDictionary.Add("13", "Exit");
             string festivals = JsonConvert.SerializeObject(festivalsDictionary);
             JsonSerializer s = new JsonSerializer();
-            string pomocna = s.Stringify(festivals);
+            string pomocna = s.Stringify(festivalsDictionary);
+            
 
             Festival f = new Festival("majmundjoka@gmail.com", artists, calendar, "Nis", festivals, "majmun");
             Festivals.AddFestival(f);
