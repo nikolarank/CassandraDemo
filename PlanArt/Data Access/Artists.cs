@@ -18,7 +18,7 @@ namespace PlanArt.Data_Access
             if (session == null)
                 return null;
 
-            Row artistData = session.Execute("select * from \"artist\" where \"email\"=" + email).FirstOrDefault();
+            Row artistData = session.Execute("select * from \"Artist\" where \"email\"=" + email).FirstOrDefault();
 
             if (artistData != null)
             {
@@ -33,6 +33,19 @@ namespace PlanArt.Data_Access
             }
 
             return artist;
+        }
+
+        public static void AddArtist(Artist artist)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+
+            RowSet hotelData = session.Execute("insert into \"Artist\" (\"email\", name, lastname, nickname, city, festivals, calendar, artists) " +
+              "  values ('" + artist.email + "', '" + artist.name + "','" + artist.lastname + "','" + artist.city + "','" + artist.city + "','" + artist.festivals + "','" + artist.calendar + "','" + artist.artists + ");");
+
         }
     }
 

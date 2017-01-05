@@ -50,8 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data Access\Artists.cs" />
+    <Compile Include="Data Access\Festivals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryEntities\Artist.cs" />
+    <Compile Include="QueryEntities\Festival.cs" />
+    <Compile Include="QueryEntities\Performance.cs" />
     <Compile Include="SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
