@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PlanArt.Data_Access;
+using PlanArt.QueryEntities;
 
 namespace PlanArt
 {
@@ -11,7 +12,7 @@ namespace PlanArt
     {
         static void Main(string[] args)
         {
-            Artists.GetArtist("nikolarank94@gmail.com");
+            Artist a = Artists.GetArtist("nikolarank94@gmail.com");
         }
     }
 }

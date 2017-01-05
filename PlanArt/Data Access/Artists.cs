@@ -18,7 +18,7 @@ namespace PlanArt.Data_Access
             if (session == null)
                 return null;
 
-            Row artistData = session.Execute("select * from \"Artist\" where \"email\"=" + email).FirstOrDefault();
+            Row artistData = session.Execute("select * from \"Artist\" where \"email\"=" + "'" + email + "'").FirstOrDefault();
 
             if (artistData != null)
             {
