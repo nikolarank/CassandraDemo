@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
+using PlanArt.QueryEntities;
 
 namespace PlanArt.Data_Access
 {
@@ -24,14 +25,15 @@ namespace PlanArt.Data_Access
                 artist.email = artistData["email"] != null ? artistData["email"].ToString() : string.Empty;
                 artist.name = artistData["name"] != null ? artistData["name"].ToString() : string.Empty;
                 artist.lastname = artistData["lastname"] != null ? artistData["lastname"].ToString() : string.Empty;
-                artist.address = artistData["address"] != null ? artistData["address"].ToString() : string.Empty;
+                artist.nickname = artistData["nickname"] != null ? artistData["nickname"].ToString() : string.Empty;
                 artist.city = artistData["city"] != null ? artistData["city"].ToString() : string.Empty;
-                artist.phone = artistData["phone"] != null ? artistData["phone"].ToString() : string.Empty;
-                artist.state = artistData["state"] != null ? artistData["state"].ToString() : string.Empty;
-                artist.zip = artistData["zip"] != null ? artistData["zip"].ToString() : string.Empty;
+                artist.festivals = (SortedDictionary<string, string>)artistData["festivals"];
+                artist.calendar = (SortedDictionary<DateTime, List<Performance>>)artistData["calendar"];
+                artist.artists = (SortedDictionary<string, string>)artistData["artists"];
             }
 
             return artist;
         }
     }
+
 }
