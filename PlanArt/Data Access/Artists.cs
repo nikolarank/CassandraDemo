@@ -43,7 +43,7 @@ namespace PlanArt.Data_Access
                 return;
 
 
-            RowSet hotelData = session.Execute("insert into \"Artist\" (\"email\", name, lastname, nickname, city, festivals, calendar, artists) " +
+            RowSet artistData = session.Execute("insert into \"Artist\" (\"email\", name, lastname, nickname, city, festivals, calendar, artists) " +
               "  values ('" + artist.email + "', '" + artist.name + "','" + artist.lastname + "','" + artist.city + "','" + artist.city + "','" + artist.festivals + "','" + artist.calendar + "','" + artist.artists + ");");
 
         }
