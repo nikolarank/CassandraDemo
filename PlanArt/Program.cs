@@ -12,7 +12,9 @@ namespace PlanArt
     {
         static void Main(string[] args)
         {
-            Artist a = Artists.GetArtist("nikolarank94@gmail.com");
+            Artist a = Artists.GetArtist("artist.email");
+
+            Artists.AddArtist(a);
         }
     }
 }

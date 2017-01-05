@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
 using PlanArt.QueryEntities;
+using Newtonsoft.Json;
+using System.Web;
 
 namespace PlanArt.Data_Access
 {
@@ -28,7 +30,7 @@ namespace PlanArt.Data_Access
                 artist.nickname = artistData["nickname"] != null ? artistData["nickname"].ToString() : string.Empty;
                 artist.city = artistData["city"] != null ? artistData["city"].ToString() : string.Empty;
                 artist.festivals = (SortedDictionary<string, string>)artistData["festivals"];
-                artist.calendar = (SortedDictionary<DateTime, List<Performance>>)artistData["calendar"];
+                //artist.calendar = (SortedDictionary<DateTime, List<Performance>>)artistData["calendar"];
                 artist.artists = (SortedDictionary<string, string>)artistData["artists"];
             }
 
@@ -42,10 +44,14 @@ namespace PlanArt.Data_Access
             if (session == null)
                 return;
 
+            string fests = JsonConvert.SerializeObject(artist.festivals);
+            string cal = JsonConvert.SerializeObject(artist.calendar);
+            string artsts = JsonConvert.SerializeObject(artist.artists);
 
-            RowSet hotelData = session.Execute("insert into \"Artist\" (\"email\", name, lastname, nickname, city, festivals, calendar, artists) " +
-              "  values ('" + artist.email + "', '" + artist.name + "','" + artist.lastname + "','" + artist.city + "','" + artist.city + "','" + artist.festivals + "','" + artist.calendar + "','" + artist.artists + ");");
-
+            RowSet hotelData = session.Execute(
+                "insert into \"Artist\" (email, name, lastname, nickname, city, festivals, calendar, artists)" +
+                "values ('" + artist.email + "','" + artist.name + "','" + artist.lastname + "','" + artist.nickname 
+                + "','" + artist.city + "'," + fests + ", " + cal + ", " + artsts); 
         }
     }
 
