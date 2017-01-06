@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using PlanArt.Data_Access;
 using PlanArt.QueryEntities;
-using Newtonsoft.Json;
-using Microsoft.AspNet.SignalR.Json;
 
 namespace PlanArt
 {
@@ -20,25 +18,27 @@ namespace PlanArt
             SortedDictionary<string, string> artistsDictionary = new SortedDictionary<string, string>();
             artistsDictionary.Add("pera", "govnonja");
             artistsDictionary.Add("krepao", "kotao");
-            string artists = JsonConvert.SerializeObject(artistsDictionary);
 
             SortedDictionary<DateTime, List<Performance>> calendarDictionary = new SortedDictionary<DateTime, List<Performance>>();
             List<Performance> lista = new List<Performance>();
-            Performance nastup = new Performance();
-            nastup.performanceID = "123";
-            lista.Add(nastup);
-            calendarDictionary.Add(DateTime.Now, lista);
-            string calendar = JsonConvert.SerializeObject(calendarDictionary);
+            Performance nastup1 = new Performance();
+            nastup1.performanceID = "123";
+            nastup1.atribut1 = "456";
+            nastup1.atribut2 = "789";
+            lista.Add(nastup1);
+            Performance nastup2 = new Performance();
+            nastup2.performanceID = "456";
+            nastup2.atribut1 = "123";
+            nastup2.atribut2 = "789";
+            lista.Add(nastup2);
+            calendarDictionary.Add(new DateTime(2017, 5, 1), lista);
+            //DateTime t = new DateTime("", );
 
             SortedDictionary<string, string> festivalsDictionary = new SortedDictionary<string, string>();
             festivalsDictionary.Add("12", "LoveFest");
             festivalsDictionary.Add("13", "Exit");
-            string festivals = JsonConvert.SerializeObject(festivalsDictionary);
-            JsonSerializer s = new JsonSerializer();
-            string pomocna = s.Stringify(festivalsDictionary);
-            
 
-            Festival f = new Festival("majmundjoka@gmail.com", artists, calendar, "Nis", festivals, "majmun");
+            Festival f = new Festival("perakojot@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
             Festivals.AddFestival(f);
         }
     }

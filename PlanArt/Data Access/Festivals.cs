@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
 using PlanArt.QueryEntities;
+using Newtonsoft.Json;
+using Microsoft.AspNet.SignalR.Json;
 
 namespace PlanArt.Data_Access
 {
@@ -33,6 +35,21 @@ namespace PlanArt.Data_Access
         //    return Festival;
         //}
 
+        public static void AddFestivalRegistration(Festival festival)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            string email = festival.email;
+            string query = "INSERT INTO \"Festival\" JSON '{\"email\":";
+            query += "\"" + email + "\"";
+            query += "}';";
+
+            RowSet festivalData = session.Execute(query);
+        }
+
         public static void AddFestival(Festival festival)
         {
             ISession session = SessionManager.GetSession();
@@ -40,6 +57,12 @@ namespace PlanArt.Data_Access
             if (session == null)
                 return;
 
+            string email = festival.email;
+            string artists = JsonConvert.SerializeObject(festival.artists);
+            string calendar = JsonConvert.SerializeObject(festival.calendar);
+            string city = festival.city;
+            string festivals = JsonConvert.SerializeObject(festival.festivals);
+            string name = festival.name;
 
             //RowSet festivalData = session.Execute("insert into \"Festival\" (\"email\", artists, calendar, city, festivals, name) " +
             //  "  values ('" + festival.email + "', '" + festival.artists + "','" + festival.calendar + "','" + festival.city + "','" + festival.festivals + "','" + festival.name + ");");
@@ -53,9 +76,17 @@ namespace PlanArt.Data_Access
             //  "  values ('" + festival.email + "'," + festival.artists + "," + festival.calendar + ",'" + festival.city + "'," + festival.festivals + ",'" + festival.name + "');");
 
 
+            //INSERT INTO "Festival" JSON '{"email": "user123456", "calendar": {"2014-10-2 12:10": "0x56"}}';
+            string query = "INSERT INTO \"Festival\" JSON '{\"email\":";
+            query += "\"" + email + "\", \"artists\":";
+            query += artists + ", \"calendar\":";
+            query += calendar + ", \"city\":";
+            query += "\"" + city + "\", \"festivals\":";
+            query += festivals + ", \"name\":";
+            query += "\"" + name + "\"";
+            query += "}';";
 
-            RowSet festivalData = session.Execute("insert into \"Festival\" (\"email\", artists, city, festivals, name) " +
-              "  values ('majmundjoka@gmail.com', {'pera':'govnonja', 'krepao':'kotao'}, 'Nis', {'12':'LoveFest', '13':'Exit'}, 'majmun');");
+            RowSet festivalData = session.Execute(query);
 
 
         }

@@ -9,5 +9,7 @@ namespace PlanArt.QueryEntities
     public class Performance
     {
         public string performanceID { get; set; }
+        public string atribut1 { get; set; }
+        public string atribut2 { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PlanArt;
+using PlanArtMVC.Models;
 
 namespace PlanArtMVC.Controllers
 {
@@ -11,9 +12,10 @@ namespace PlanArtMVC.Controllers
     {
         //
         // GET: /LogIn/
-        public ActionResult Index()
+        public ActionResult LogIn()
         {
-            return View();
+            LogInModel model = new LogInModel();
+            return View(model);
         }
 	}
 }
