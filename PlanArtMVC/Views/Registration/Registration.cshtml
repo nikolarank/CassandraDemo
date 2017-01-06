@@ -15,7 +15,7 @@
     <script src="~/Scripts/bootstrap.js"></script>
 </head>
 
-<body style="background-image: url('../../Content/slike/ConcactBackground.jpg');"
+<body style="background-image: url('../../Content/pictures/registration.jpg');"
     <!-- GLAVNI SADRZAJ -->
     <div class="container-fluid">
         <form method="post" action="@Url.Action("Register", "Registration")">
@@ -23,7 +23,6 @@
 
                 <div class="well" style="margin-left:20%; margin-right:20%; margin-top:2%; opacity:0.8; border-radius:7px;">
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.ImeRegistracija, new { @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.TextBoxFor(m => m.ImeRegistracija, new { @class = "form-control", @id = "ime", @name = "Ime", @placeholder = "Ime", })
                         @Html.ValidationMessageFor(model => model.ImeRegistracija, "", new { @class = "text-danger" })
                         <!--
@@ -33,7 +32,6 @@
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.PrezimeRegistracija, new { @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.TextBoxFor(m => m.PrezimeRegistracija, new { @class = "form-control", @id = "prezime", @name = "Prezime", @placeholder = "Prezime" })
                         @Html.ValidationMessageFor(model => model.PrezimeRegistracija, "", new { @class = "text-danger" })
                         <!--
@@ -43,7 +41,6 @@
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.EmailRegistracija, new { @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.TextBoxFor(m => m.EmailRegistracija, new { @class = "form-control", @id = "email", @name = "Email", @placeholder = "Adresa e-pošte" })
                         @Html.ValidationMessageFor(model => model.EmailRegistracija, "", new { @class = "text-danger" })
                         <!--
@@ -53,7 +50,6 @@
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.UsernameRegistracija, new { @value = "Korisničko ime", @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.TextBoxFor(m => m.UsernameRegistracija, new { @class = "form-control", @id = "korisnickoIme", @name = "Username", @placeholder = "Korisničko ime" })
                         @Html.ValidationMessageFor(model => model.UsernameRegistracija, "", new { @class = "text-danger" })
                         <!--
@@ -63,7 +59,6 @@
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.PasswordRegistracija, new { @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.PasswordFor(m => m.PasswordRegistracija, new { @class = "form-control", @id = "lozinka", @name = "Password", @placeholder = "Lozinka" })
                         @Html.ValidationMessageFor(model => model.PasswordRegistracija, "", new { @class = "text-danger" })
                         <!--
@@ -73,7 +68,6 @@
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.LabelFor(m => m.ConfirmPasswordRegistracija, new { @class = "pull-left", @style = "margin-left:3px;" })
                         @Html.PasswordFor(m => m.ConfirmPasswordRegistracija, new { @class = "form-control", @id = "potvrdaLozinke", @name = "ConfirmPassword", @placeholder = "Potvrdi lozinku" })
                         @Html.ValidationMessageFor(model => model.ConfirmPasswordRegistracija, "", new { @class = "text-danger" })
                         <!--
