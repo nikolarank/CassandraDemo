@@ -16,5 +16,6 @@ namespace PlanArt.QueryEntities
         public string lastname { get; set; } //
         public string name { get; set; } //
         public string nickname { get; set; } //    
+        public string password { get; set; } //   
     }
 }

@@ -17,6 +17,7 @@ namespace PlanArt
             {
                 Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 session = cluster.Connect("PlanArt");
+                //ICqlClient client = CqlClientConfiguration.ForSession(session).BuildCqlClient();
             }
 
             return session;

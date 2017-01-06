@@ -23,6 +23,7 @@ namespace PlanArt.Data_Access
             if (artistData != null)
             {
                 artist.email = artistData["email"] != null ? artistData["email"].ToString() : string.Empty;
+                artist.password = artistData["password"] != null ? artistData["password"].ToString() : string.Empty;
                 artist.name = artistData["name"] != null ? artistData["name"].ToString() : string.Empty;
                 artist.lastname = artistData["lastname"] != null ? artistData["lastname"].ToString() : string.Empty;
                 artist.nickname = artistData["nickname"] != null ? artistData["nickname"].ToString() : string.Empty;

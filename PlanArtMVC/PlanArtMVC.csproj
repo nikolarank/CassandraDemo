@@ -167,6 +167,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
@@ -178,9 +179,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\fonts.css" />
     <Content Include="Content\CSS\home.css" />
     <Content Include="Content\CSS\LoginCSS.css" />
     <Content Include="Content\CSS\RegistrationCSS.css" />
+    <Content Include="Content\pictures\Back1.jpg" />
+    <Content Include="Content\pictures\Back2.jpg" />
+    <Content Include="Content\pictures\Back3.jpg" />
     <Content Include="Content\pictures\registration.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -232,6 +237,7 @@
     <Content Include="Views\LogIn\LogIn.cshtml" />
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Shared\drugiLayout.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -244,13 +250,13 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\PlanArt\PlanArt.csproj">
       <Project>{d966dd24-de0f-47a8-8cab-757d8057ccbc}</Project>
       <Name>PlanArt</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

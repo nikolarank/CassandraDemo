@@ -16,20 +16,20 @@ namespace PlanArt
             //Festival b = Festivals.GetFestival("peradetlic");
 
             SortedDictionary<string, string> artistsDictionary = new SortedDictionary<string, string>();
-            artistsDictionary.Add("pera", "govnonja");
-            artistsDictionary.Add("krepao", "kotao");
+            artistsDictionary.Add("misko", "pisko");
+            artistsDictionary.Add("sakil", "onil");
 
             SortedDictionary<DateTime, List<Performance>> calendarDictionary = new SortedDictionary<DateTime, List<Performance>>();
             List<Performance> lista = new List<Performance>();
             Performance nastup1 = new Performance();
-            nastup1.performanceID = "123";
-            nastup1.atribut1 = "456";
-            nastup1.atribut2 = "789";
+            nastup1.performanceID = "1asasa";
+            nastup1.atribut1 = "dsdsd";
+            nastup1.atribut2 = "dffdf";
             lista.Add(nastup1);
             Performance nastup2 = new Performance();
-            nastup2.performanceID = "456";
-            nastup2.atribut1 = "123";
-            nastup2.atribut2 = "789";
+            nastup2.performanceID = "rere";
+            nastup2.atribut1 = "trtrr";
+            nastup2.atribut2 = "ytyty";
             lista.Add(nastup2);
             calendarDictionary.Add(new DateTime(2017, 5, 1), lista);
             //DateTime t = new DateTime("", );
@@ -38,8 +38,9 @@ namespace PlanArt
             festivalsDictionary.Add("12", "LoveFest");
             festivalsDictionary.Add("13", "Exit");
 
-            Festival f = new Festival("perakojot@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
+            Festival f = new Festival("sanantonio@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
             Festivals.AddFestival(f);
+            //Festivals.GetFestival("perakojot@gmail.com");
         }
     }
 }
