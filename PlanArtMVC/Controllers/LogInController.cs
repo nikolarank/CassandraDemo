@@ -23,27 +23,38 @@ namespace PlanArtMVC.Controllers
         [HttpPost]
         public ActionResult Logovanje(LogInModel model)
         {
-            Artist artist = Artists.GetArtist(model.Mail);
-            //Korisnik user = Korisnici.Procitaj(model.LogInModel.UsernameLogIn, db);
-            //var errors = ModelState.Values.SelectMany(v => v.Errors);
-            if (ModelState.IsValid && artist != null && artist.password == model.Password)
+            Artist artist = Artists.GetArtist(model.mail);
+            Festival festival = Festivals.GetFestival(model.mail);
+            HomeModel homeModel = new HomeModel();
+            if (ModelState.IsValid && ( (artist.password == model.password) || (festival.password == model.password) ))
             {
-                //Session["user"] = user;
-                //Session["Id"] = user.KorisnikID;
-                //Session["Username"] = user.Korisnicko_Ime;
-                //Session["Status"] = user.Status;
-                //Session["Ime"] = user.Ime;
-                //Session["Instruktor"] = user.Moj_Instruktor;
-                HomeModel homeModel = new HomeModel();
-                homeModel.name = artist.name;
-                homeModel.nickname = artist.nickname;
-                homeModel.lname = artist.lastname;
-                homeModel.password = artist.password;
-                homeModel.city = artist.city;
-                homeModel.calendar = artist.calendar;
-                homeModel.festivals = artist.festivals;
-                homeModel.artists = artist.artists;
-
+                if (artist.email != null)
+                {
+                    Session["status"] = "artist";
+                    homeModel.email = artist.email;
+                    homeModel.password = artist.password;
+                    homeModel.city = artist.city;
+                    homeModel.firstname = artist.firstname;
+                    homeModel.artists = artist.artists;
+                    homeModel.calendar = artist.calendar;
+                    homeModel.festivals = artist.festivals;
+                    homeModel.picture = Picture.ToBase64(artist.picture);
+                    homeModel.lastname = artist.lastname;
+                    homeModel.nickname = artist.nickname;
+                }
+                else
+                    if (festival.email != null)
+                    {
+                        Session["status"] = "festival";
+                        homeModel.email = festival.email;
+                        homeModel.password = festival.password;
+                        homeModel.city = festival.city;
+                        homeModel.firstname = festival.firstname;
+                        homeModel.artists = festival.artists;
+                        homeModel.calendar = festival.calendar;
+                        homeModel.festivals = festival.festivals;
+                        homeModel.picture = Picture.ToBase64(festival.picture);
+                    }
 
                 return View("~/Views/Home/Home.cshtml", homeModel);
             }

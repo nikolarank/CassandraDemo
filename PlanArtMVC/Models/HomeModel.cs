@@ -10,14 +10,26 @@ namespace PlanArtMVC.Models
 {
     public class HomeModel
     {
-        public string mail { get; set; }
-        public string name{ get; set; }
-        public string lname { get; set; }
-        public string nickname { get; set; }
-        public string city { get; set; }
+        //zajednicki atributi artista i festivala
+        public string email { get; set; }
         public string password { get; set; }
-        public SortedDictionary<string, string> artists { get; set; }
-        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; }
-        public SortedDictionary<string, string> festivals { get; set; }
+        public string picture { get; set; }
+        public string city { get; set; } 
+        public string firstname { get; set; }
+        public SortedDictionary<string, string> artists { get; set; } 
+        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } 
+        public SortedDictionary<string, string> festivals { get; set; } 
+
+        //artist
+        public string lastname { get; set; }       
+        public string nickname { get; set; } 
+
+        //festival
+
     }
 }
+
+        
+          
+          
+  

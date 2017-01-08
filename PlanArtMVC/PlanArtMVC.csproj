@@ -166,6 +166,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArtistModel.cs" />
+    <Compile Include="Models\FestivalModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LogInModel.cs" />
@@ -186,6 +188,7 @@
     <Content Include="Content\pictures\Back2.jpg" />
     <Content Include="Content\pictures\Back3.jpg" />
     <Content Include="Content\pictures\registration.jpg" />
+    <Content Include="Content\profilePictures\unknown-person.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

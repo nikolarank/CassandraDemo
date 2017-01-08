@@ -1,7 +1,15 @@
 ﻿@model PlanArtMVC.Models.RegistrationModel
 
 @{
+    ViewBag.Title = "Registration Page";
+}
+
+@*@{
     Layout = "~/Views/Shared/drugiLayout.cshtml";
+}*@
+
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -22,39 +30,51 @@
             <div class="row" style="text-align:center;">
 
                 <div class="well" style="margin-left:20%; margin-right:20%; margin-top:2%; opacity:0.8; border-radius:7px;">
-                    <div class="row redRazmak slova">
-                        @Html.TextBoxFor(m => m.ImeRegistracija, new { @class = "form-control", @id = "ime", @name = "Ime", @placeholder = "Ime", })
-                        @Html.ValidationMessageFor(model => model.ImeRegistracija, "", new { @class = "text-danger" })
+
+                    <div class="row redRazmak slova">                       
+                        @Html.RadioButtonFor(m => m.status, "Artist") Artist
+                        @Html.RadioButtonFor(m => m.status, "Festival") Festival
+                        @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.TextBoxFor(m => m.PrezimeRegistracija, new { @class = "form-control", @id = "prezime", @name = "Prezime", @placeholder = "Prezime" })
-                        @Html.ValidationMessageFor(model => model.PrezimeRegistracija, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", @id = "email", @name = "email", @placeholder = "email", })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.TextBoxFor(m => m.EmailRegistracija, new { @class = "form-control", @id = "email", @name = "Email", @placeholder = "Adresa e-pošte" })
-                        @Html.ValidationMessageFor(model => model.EmailRegistracija, "", new { @class = "text-danger" })
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @id = "password", @name = "password", @placeholder = "password" })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.TextBoxFor(m => m.UsernameRegistracija, new { @class = "form-control", @id = "korisnickoIme", @name = "Username", @placeholder = "Korisničko ime" })
-                        @Html.ValidationMessageFor(model => model.UsernameRegistracija, "", new { @class = "text-danger" })
+                        @Html.PasswordFor(m => m.confirmPassword, new { @class = "form-control", @id = "confirmPassword", @name = "confirmPassword", @placeholder = "confirm password" })
+                        @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.PasswordFor(m => m.PasswordRegistracija, new { @class = "form-control", @id = "lozinka", @name = "Password", @placeholder = "Lozinka" })
-                        @Html.ValidationMessageFor(model => model.PasswordRegistracija, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.city, new { @class = "form-control", @id = "city", @name = "city", @placeholder = "city" })
+                        @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova">
-                        @Html.PasswordFor(m => m.ConfirmPasswordRegistracija, new { @class = "form-control", @id = "potvrdaLozinke", @name = "ConfirmPassword", @placeholder = "Potvrdi lozinku" })
-                        @Html.ValidationMessageFor(model => model.ConfirmPasswordRegistracija, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.firstname, new { @class = "form-control", @id = "firstname", @name = "firstname", @placeholder = "firstname" })
+                        @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="row redRazmak slova">
+                        @Html.TextBoxFor(m => m.lastname, new { @class = "form-control", @id = "lastname", @name = "lastname", @placeholder = "lastname" })
+                        @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="row redRazmak slova">
+                        @Html.TextBoxFor(m => m.nickname, new { @class = "form-control", @id = "nickname", @name = "nickname", @placeholder = "nickname" })
+                        @Html.ValidationMessageFor(model => model.nickname, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="row redRazmak slova" style="text-align:center;">
                         <span>
-                            <button id="registrujSe" class="btn btn-primary space-vert" data-target="#myModal">Registruj se</button>
+                            <button id="registrujSe" class="btn btn-primary space-vert" data-target="#myModal">Register</button>
                         </span>
                     </div>
 

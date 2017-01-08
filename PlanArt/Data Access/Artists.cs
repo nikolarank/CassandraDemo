@@ -10,6 +10,23 @@ namespace PlanArt.Data_Access
 {
     public static class Artists
     {
+        //registracija, dodajemo: email, password, city, firstname, lastname, nickname
+        public static void Add(Artist artist)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            //string email = artist.email;
+            //string query = "INSERT INTO \"Artist\" JSON '{\"email\":";
+            //query += "\"" + email + "\"";
+            //query += "}';";
+
+            RowSet artistData = session.Execute("insert into \"Artist\" (\"email\", password, city, firstname, lastname, nickname, picture) " +
+              "  values ('" + artist.email + "', '" + artist.password + "','" + artist.city + "','" + artist.firstname + "','" + artist.lastname + "','" + artist.nickname + "','" + artist.picture + "');");
+        }
+
         public static Artist GetArtist(string email)
         {
             ISession session = SessionManager.GetSession();
@@ -18,13 +35,14 @@ namespace PlanArt.Data_Access
             if (session == null)
                 return null;
 
-            Row artistData = session.Execute("select * from \"Artist\" where \"email\"=" + "'" + email + "'").FirstOrDefault();
+            Row artistData = session.Execute("select * from \"Artist\" where \"email\"=" + "'" + email + "'").FirstOrDefault(); 
 
             if (artistData != null)
             {
                 artist.email = artistData["email"] != null ? artistData["email"].ToString() : string.Empty;
                 artist.password = artistData["password"] != null ? artistData["password"].ToString() : string.Empty;
-                artist.name = artistData["name"] != null ? artistData["name"].ToString() : string.Empty;
+                artist.picture = artistData["picture"] != null ? artistData["picture"].ToString() : string.Empty;
+                artist.firstname = artistData["firstname"] != null ? artistData["firstname"].ToString() : string.Empty;
                 artist.lastname = artistData["lastname"] != null ? artistData["lastname"].ToString() : string.Empty;
                 artist.nickname = artistData["nickname"] != null ? artistData["nickname"].ToString() : string.Empty;
                 artist.city = artistData["city"] != null ? artistData["city"].ToString() : string.Empty;
@@ -36,18 +54,15 @@ namespace PlanArt.Data_Access
             return artist;
         }
 
-        public static void AddArtist(Artist artist)
+        public static void ChangeProfilePicture(string picture, string email)
         {
             ISession session = SessionManager.GetSession();
-
             if (session == null)
                 return;
 
-
-            RowSet artistData = session.Execute("insert into \"Artist\" (\"email\", name, lastname, nickname, city, festivals, calendar, artists) " +
-              "  values ('" + artist.email + "', '" + artist.name + "','" + artist.lastname + "','" + artist.city + "','" + artist.city + "','" + artist.festivals + "','" + artist.calendar + "','" + artist.artists + ");");
-
+            RowSet artistData = session.Execute("update \"Artist\" set picture =" + "'" + picture + "' where \"email\"=" + "'" + email + "'");
         }
+
     }
 
 }

@@ -38,8 +38,8 @@ namespace PlanArt
             festivalsDictionary.Add("12", "LoveFest");
             festivalsDictionary.Add("13", "Exit");
 
-            Festival f = new Festival("sanantonio@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
-            Festivals.AddFestival(f);
+            //Festival f = new Festival("sanantonio@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
+            //Festivals.AddFestival(f);
             //Festivals.GetFestival("perakojot@gmail.com");
         }
     }

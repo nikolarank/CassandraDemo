@@ -23,52 +23,33 @@ namespace PlanArtMVC.Controllers
         [AllowAnonymous]
         public ActionResult Register(RegistrationModel model)
         {
-
-            //if (ModelState.IsValid)
-            //{
-            //    Korisnik user = new Korisnik()
-            //    {
-            //        Ime = model.RegistracijaModel.ImeRegistracija,
-            //        Prezime = model.RegistracijaModel.PrezimeRegistracija,
-            //        Korisnicko_Ime = model.RegistracijaModel.UsernameRegistracija,
-            //        Sifra = model.RegistracijaModel.PasswordRegistracija,
-            //        Email = model.RegistracijaModel.EmailRegistracija,
-            //        Biografija = "",
-            //        Broj_Ocenjivanja = 0,
-            //        Rang = 0,
-            //        Status = "korisnik",
-            //        Korisnik_Plan_Ishranes = null,
-            //        Korisnik_Trenings = null,
-            //        Korisnik_Uza_Specijalnosts = null,
-            //        Moj_Instruktor = null,
-            //        Porukas = null,
-            //        Porukas1 = null,
-            //        Sertifikat_Korisniks = null,
-            //        Verifikovan_Nalog = false,
-            //        Slika = "unknown-person.jpg",
-            //        Zahtev_Za_Instruktora = false
-            //    };
-
-            //    Korisnici.Dodaj(user, db);
-
-            //    SendMail(user);
-            //    ViewBag.Articles = "one";
-            //    return View("RegistracijaVerifikacija");
-            //}
-            //else
-            //{
-            //    return View("Registracija", model);
-            //}
             if (ModelState.IsValid)
             {
-                Festival festival = new Festival(model.EmailRegistracija);
-                Festivals.AddFestivalRegistration(festival);
+                string email = model.email;
+                string password = model.password;
+                string city = model.city;
+                string firstname = model.firstname;
+
+                if (model.status == "Artist")
+                {
+                    string lastname = model.lastname;
+                    string nickname = model.nickname;
+
+                    Artist artist = new Artist(email, password, city, firstname, lastname, nickname, "unknown-person.jpg");
+                    Artists.Add(artist);
+                }
+                else
+                {
+                    Festival festival = new Festival(email, password, city, firstname, "unknown-person.jpg");
+                    Festivals.Add(festival);
+                }     
+         
+                return View("~/Views/LogIn/LogIn.cshtml");
             }
-
-
-
-            return View("~/Views/Registration/Registration.cshtml");
-
+            else
+            {
+                return View("Registration", model);
+            }
         }
 	}
 }

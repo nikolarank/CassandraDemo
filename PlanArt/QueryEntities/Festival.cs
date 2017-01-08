@@ -12,52 +12,24 @@ namespace PlanArt.QueryEntities
         public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } //
         public string city { get; set; } //
         public string email { get; set; } //
+        public string password { get; set; } //
+        public string picture { get; set; } //
         public SortedDictionary<string, string> festivals { get; set; } //
-        public string name { get; set; } //       
+        public string firstname { get; set; } //       
 
         public Festival()
         {
 
         }
 
-        public Festival(string email)
+        public Festival(string email, string password, string city, string firstname, string picture)
         {
             this.email = email;
-        }
-
-        public Festival(string email, SortedDictionary<string, string> artists, SortedDictionary<DateTime, List<Performance>> calendar, string city, SortedDictionary<string, string> festivals, string name)
-        {
-            this.email = email;
-            this.artists = artists;
-            this.calendar = calendar;
+            this.password = password;
             this.city = city;
-            this.festivals = festivals;
-            this.name = name;
+            this.firstname = firstname;
+            this.picture = picture;
         }
 
-
-
-
-        //public string artists { get; set; } //
-        //public string calendar { get; set; } //
-        //public string city { get; set; } //
-        //public string email { get; set; } //
-        //public string festivals { get; set; } //
-        //public string name { get; set; } //       
-
-        //public Festival()
-        //{
-
-        //}
-
-        //public Festival(string email, string artists, string calendar, string city, string festivals, string name)
-        //{
-        //    this.email = email;
-        //    this.artists = artists;
-        //    this.calendar = calendar;
-        //    this.city = city;
-        //    this.festivals = festivals;
-        //    this.name = name;
-        //}
     }
 }

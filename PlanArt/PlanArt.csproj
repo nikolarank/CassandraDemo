@@ -38,9 +38,6 @@
       <HintPath>packages\CassandraCSharpDriver.3.1.0.1\lib\net45\Cassandra.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CqlPoco">
-      <HintPath>packages\CqlPoco.1.0.0\lib\net45\CqlPoco.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -66,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +79,7 @@
     <Compile Include="QueryEntities\Artist.cs" />
     <Compile Include="QueryEntities\Festival.cs" />
     <Compile Include="QueryEntities\Performance.cs" />
+    <Compile Include="QueryEntities\Picture.cs" />
     <Compile Include="SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>

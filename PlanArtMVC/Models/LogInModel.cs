@@ -9,10 +9,10 @@ namespace PlanArtMVC.Models
     public class LogInModel
     {
         [Required(ErrorMessage = "Field can't be empty")]
-        public string Mail { get; set; }
+        public string mail { get; set; }
 
         [Required(ErrorMessage = "Field can't be empty")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string password { get; set; }
     }
 }

@@ -4,8 +4,12 @@
     ViewBag.Title = "LogIn Page";
 }
 
-@{
+@*@{
     Layout = "~/Views/Shared/drugiLayout.cshtml";
+}*@
+
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -14,7 +18,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - Registration</title>
+    <title>LogIn Page</title>
     <link href="~/Content/CSS/LoginCSS.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.12.3.js"></script>
@@ -36,20 +40,20 @@
 
                 <div class="container-fluid padding-top:10" style="width:500px;">
                     <div class="panel panel-default">
-                        <div class="panel-heading" style="text-align:center; background-color:#337ab7; color:white;"> Plan Art - Log In and start exercising! </div>
+                        <div class="panel-heading" style="text-align:center; background-color:#337ab7; color:white;"> Plan Art </div>
                         <div class="panel-body">
                             <form method="post" action="@Url.Action("Logovanje", "LogIn")">
                                 <div class="row" style="padding-bottom: 5px; text-align:center;">
                                     <!-- MAIL POCETAK -->
                                     <div class="col-md-12" style="padding-bottom: 5px;">
-                                        @Html.TextBoxFor(m => m.Mail, new { @class = "form-control", @name = "mail", @placeholder = "mail", @style = "text-align:center" })
-                                        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(m => m.mail, new { @class = "form-control", @name = "mail", @placeholder = "mail", @style = "text-align:center" })
+                                        @Html.ValidationMessageFor(model => model.mail, "", new { @class = "text-danger" })
                                     </div>
                                     <!-- MAIL KRAJ    -->
                                     <!-- PASSWORD POCETAK -->
                                     <div class="col-md-12">
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @name = "password", @id = "password", @placeholder = "Password", @style = "text-align:center" })
-                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @name = "password", @id = "password", @placeholder = "Password", @style = "text-align:center" })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                                     </div>
                                     <!-- PASSWORD KRAJ    -->
                                     <!--POGRESNO UNETI PODACI POCETAK-->
@@ -68,6 +72,16 @@
                                     </div>
                                 </div>
                                 <!-- LOGIN DUGME KRAJ -->
+
+                                <!-- REGISTRACIJA LINK-->
+                                <div class="row" style="padding-bottom: 2px; padding-top:5px;">
+                                    <div class="col-md-12" style="text-align:center;">
+                                        <a href="@Url.Action("Registration", "Registration")" style="color:#337ab7;"> Register </a>
+
+                                    </div>
+                                </div>
+                                <!-- REGISTRACIJA LINK KRAJ-->
+
                             </form>
                         </div>
                     </div>
