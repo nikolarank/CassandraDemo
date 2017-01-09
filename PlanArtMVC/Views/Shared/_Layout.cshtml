@@ -11,7 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .input[type=text] {
+            width: 130px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
 
+        /* When the input field gets focus, change its width to 100% */
+        input[type=text]:focus {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -35,6 +46,17 @@
             <li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
         </ul>
     </div>
+
+
+    @*Search*@
+
+    <form action="@Url.Action("Search","Home")" method="post">
+            <div class="inp">
+                <input list="listaTagova" id="traziInput" name="tagovi" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
+                <datalist id="listaTagova"></datalist>
+                <button class="btn btn-default" id="btnsrch"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+    </form>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
@@ -64,3 +86,36 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript">
+    {
+        function ajaxPozivTagoviNaslovna()
+        {
+                var text = $('#traziInput').val(); //prvo slovo prvog elementa liste 
+                var model = { letters: text }
+
+                $.post("/Home/ReturnSuggestion", model,
+                function (data)
+                {
+                        $('#listaTagova').empty();
+                        $.each(data, function (index)
+                        {
+                            var opcija = document.createElement("option");
+                            opcija.value = data[index];
+                            
+                            var roditelj = document.getElementById("listaTagova");
+                            
+                            roditelj.appendChild(opcija);
+                        });
+                });
+
+        }
+
+        function inputFocus(i) {
+            if (i.value == i.defaultValue) { i.value = ""; i.style.color = "#000"; }
+        }
+        function inputBlur(i) {
+            if (i.value == "") { i.value = i.defaultValue; i.style.color = "#888"; }
+        }
+    }
+</script>

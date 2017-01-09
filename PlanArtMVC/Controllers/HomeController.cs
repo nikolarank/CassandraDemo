@@ -39,6 +39,20 @@ namespace PlanArtMVC.Controllers
             return View("~/Views/Home/Home.cshtml", model);
         }
 
+        [HttpPost]
+        public JsonResult ReturnSuggestion(NamesListModel model)
+        {
+            List<string> names = SearchByNames.ReturnAllNamesThatStartsWith(model.letters);
+            return Json(names, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
