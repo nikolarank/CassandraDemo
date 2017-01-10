@@ -16,9 +16,7 @@ namespace PlanArtMVC.Models
         public string picture { get; set; }
         public string city { get; set; } 
         public string firstname { get; set; }
-        public SortedDictionary<string, string> artists { get; set; } 
         public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } 
-        public SortedDictionary<string, string> festivals { get; set; } 
 
         //artist
         public string lastname { get; set; }       

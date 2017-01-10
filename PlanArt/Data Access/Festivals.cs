@@ -53,9 +53,7 @@ namespace PlanArt.Data_Access
                 festival.picture = festivalData["picture"] != null ? festivalData["picture"].ToString() : string.Empty;
                 festival.firstname = festivalData["firstname"] != null ? festivalData["firstname"].ToString() : string.Empty;
                 festival.city = festivalData["city"] != null ? festivalData["city"].ToString() : string.Empty;
-                festival.festivals = (SortedDictionary<string, string>)festivalData["festivals"];
                 festival.calendar = (SortedDictionary<DateTime, List<Performance>>)festivalData["calendar"];
-                festival.artists = (SortedDictionary<string, string>)festivalData["artists"];
             }
 
             return festival;

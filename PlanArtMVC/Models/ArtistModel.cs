@@ -9,10 +9,8 @@ namespace PlanArtMVC.Models
     public class ArtistModel
     {
         public string email { get; set; } // 
-        public SortedDictionary<string, string> artists { get; set; } //
         public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } //
         public string city { get; set; } //
-        public SortedDictionary<string, string> festivals { get; set; } //
         public string lastname { get; set; } //
         public string firstname { get; set; } //
         public string nickname { get; set; } //    

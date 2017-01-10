@@ -46,9 +46,7 @@ namespace PlanArt.Data_Access
                 artist.lastname = artistData["lastname"] != null ? artistData["lastname"].ToString() : string.Empty;
                 artist.nickname = artistData["nickname"] != null ? artistData["nickname"].ToString() : string.Empty;
                 artist.city = artistData["city"] != null ? artistData["city"].ToString() : string.Empty;
-                artist.festivals = (SortedDictionary<string, string>)artistData["festivals"];
                 artist.calendar = (SortedDictionary<DateTime, List<Performance>>)artistData["calendar"];
-                artist.artists = (SortedDictionary<string, string>)artistData["artists"];
             }
 
             return artist;
