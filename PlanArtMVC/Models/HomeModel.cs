@@ -20,10 +20,15 @@ namespace PlanArtMVC.Models
 
         //artist
         public string lastname { get; set; }       
-        public string nickname { get; set; } 
+        public string nickname { get; set; }
 
         //festival
+        public List<Post> posts { get; set; }
 
+        public HomeModel()
+        {
+            posts = new List<Post>();
+        }
     }
 }
 
