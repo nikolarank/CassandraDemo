@@ -1,0 +1,10 @@
+CREATE TABLE "Post" (
+    email text,
+    firstaname text,
+    lastname text,
+    profilepic text,
+    time timestamp,
+    "text" text,
+    images list<text>,
+    PRIMARY KEY (email)
+);

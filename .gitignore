@@ -246,3 +246,4 @@ PlanArt/PlanArt.sln
 PlanArtMVC/PlanArtMVC.csproj
 *.config
 *.csproj
+*.sln
