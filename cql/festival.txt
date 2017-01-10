@@ -1,10 +1,12 @@
 CREATE TABLE "Festival" (
     email text,
-    name text,
+    artists map<text,text>,
+    calendar frozen <map<timestamp,frozen <list<frozen <map<text,text>>>>>>,
     city text,
-    festivals map<text, text>,
-    calendar map<timestamp, blob>,
-    artists map<text, text>,
+    festivals map<text,text>,
+    firstname text,
+    "password" text,
+    picture text,
     PRIMARY KEY (email)
 ) WITH
   comment=''

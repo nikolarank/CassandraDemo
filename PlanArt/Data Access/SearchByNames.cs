@@ -88,6 +88,8 @@ namespace PlanArt.Data_Access
 
             List<string> lista = new List<string>();
             Row searchData = session.Execute("select emails from \"SearchByName\" where \"name\"=" + "'" + name + "'").FirstOrDefault();
+            if (searchData == null)
+                return lista;
             for (int i = 0; i < ((String[])searchData["emails"]).Length; i++)
                 lista.Add(((String[])searchData["emails"])[i]);
             return lista;
