@@ -1,0 +1,50 @@
+﻿{
+  "email" : "glastonbury@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "England",
+  "festivals" : null,
+  "firstname" : "Glastonbury",
+  "password" : "glastonbury123",
+  "picture" : "glastonbury.jpg"
+}
+{
+  "email" : "coachella@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "USA",
+  "festivals" : null,
+  "firstname" : "Coachella",
+  "password" : "coachella123",
+  "picture" : "coachella.jpg"
+}
+{
+  "email" : "exit@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Novi Sad",
+  "festivals" : null,
+  "firstname" : "Exit",
+  "password" : "exit123",
+  "picture" : "exit.jpg"
+}
+{
+  "email" : "love.fest@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Trstenik",
+  "festivals" : null,
+  "firstname" : "LoveFest",
+  "password" : "love123",
+  "picture" : "LoveFest.jpg"
+}
+{
+  "email" : "tomorrowland@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Belgium",
+  "festivals" : null,
+  "firstname" : "Tomorrowland",
+  "password" : "tomorrowland123",
+  "picture" : "Tomorrowland.jpg"
+}

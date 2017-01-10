@@ -49,9 +49,17 @@ namespace PlanArtMVC.Controllers
 
         public ActionResult Search()
         {
-            return View();
-        }
+            string ime = Request.Form["tagovi"];
+            SearchModel model = new SearchModel();
+            List<string> lista = SearchByNames.ReturnByName(ime);
+            for (int i = 0; i < lista.Count; i++ )
+            {
+                model.pictures.Add(Picture.ToBase64(ArtistFestivalSearchs.Get(lista[i]).picture));
+                model.objs.Add(ArtistFestivalSearchs.Get(lista[i]));        
+            }
 
+            return View(model);
+        }
 
         public ActionResult About()
         {

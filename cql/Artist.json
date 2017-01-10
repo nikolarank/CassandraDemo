@@ -1,0 +1,84 @@
+﻿{
+  "email" : "justin.biber@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "New York City",
+  "festivals" : null,
+  "firstname" : "Justin",
+  "lastname" : "Biber",
+  "nickname" : "JustBib",
+  "password" : "justin123",
+  "picture" : "JustinBieber.jpg"
+}
+{
+  "email" : "calvin.harris@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Bangaldesh",
+  "festivals" : null,
+  "firstname" : "Calvin",
+  "lastname" : "Harris",
+  "nickname" : "Cal",
+  "password" : "calvin123",
+  "picture" : "CalvinHarris.jpg"
+}
+{
+  "email" : "acalukas@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Beograd",
+  "festivals" : null,
+  "firstname" : "Aca",
+  "lastname" : "Lukas",
+  "nickname" : "Aca",
+  "password" : "aca123",
+  "picture" : "AcaLukas.jpg"
+}
+{
+  "email" : "david.guetta@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "New York City",
+  "festivals" : null,
+  "firstname" : "David",
+  "lastname" : "Guetta",
+  "nickname" : "Geta",
+  "password" : "david123",
+  "picture" : "DavidGuetta.jpg"
+}
+{
+  "email" : "rihanna@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Barbados",
+  "festivals" : null,
+  "firstname" : "Rihanna",
+  "lastname" : "Fenti",
+  "nickname" : "Rihanna",
+  "password" : "rihanna",
+  "picture" : "Rihanna.jpg"
+}
+{
+  "email" : "eric.clapton@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "Tihuanna",
+  "festivals" : null,
+  "firstname" : "Eric",
+  "lastname" : "Clapton",
+  "nickname" : "Ericc",
+  "password" : "eric123",
+  "picture" : "EricClapton.jpg"
+}
+{
+  "email" : "david.bowie@gmail.com",
+  "artists" : null,
+  "calendar" : null,
+  "city" : "New York City",
+  "festivals" : null,
+  "firstname" : "David",
+  "lastname" : "Bowie",
+  "nickname" : "DavidB",
+  "password" : "bowie123",
+  "picture" : "DavidBowie.jpg"
+}
