@@ -21,7 +21,7 @@ namespace PlanArt.Data_Access
             images = new List<string>();
         }
 
-        public Post(string email, string firstname, string lastname, string pic, DateTime time, List<string> images)
+        public Post(string email, string firstname, string lastname, string pic, DateTime time, List<string> images, string text)
         {
             this.email = email;
             this.firstname = firstname;
@@ -29,6 +29,7 @@ namespace PlanArt.Data_Access
             this.profilepic = pic;
             this.time = time;
             this.images = images;
+            this.text = text;
         }
     }
 }
