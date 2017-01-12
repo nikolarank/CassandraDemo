@@ -34,7 +34,7 @@ namespace PlanArtMVC.Controllers
 
                 string path = Path.Combine(Server.MapPath("~/Content/profilePictures"), Path.GetFileName(file.FileName));
                 file.SaveAs(path);
-                model.picture = Picture.ToBase64(Path.GetFileName(file.FileName));
+                model.picture = Picture.ToBase64("~/Content/profilePictures/", Path.GetFileName(file.FileName));
             }
             return View("~/Views/Home/Home.cshtml", model);
         }
@@ -54,11 +54,32 @@ namespace PlanArtMVC.Controllers
             List<string> lista = SearchByNames.ReturnByName(ime);
             for (int i = 0; i < lista.Count; i++ )
             {
-                model.pictures.Add(Picture.ToBase64(ArtistFestivalSearchs.Get(lista[i]).picture));
+                model.pictures.Add(Picture.ToBase64("~/Content/profilePictures/", ArtistFestivalSearchs.Get(lista[i]).picture));
                 model.objs.Add(ArtistFestivalSearchs.Get(lista[i]));        
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Post(IEnumerable<HttpPostedFileBase> files, HomeModel homeModel)
+        {
+            List<string> lista = new List<string>();
+            foreach (var file in files)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/postedPictures"), Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    lista.Add(Picture.ToBase64("~/Content/postedPictures/", Path.GetFileName(file.FileName)));
+                }
+            }
+
+            homeModel.myPosts = new PlanArt.Data_Access.Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPosts.text);
+            homeModel.posts.Add(homeModel.myPosts);
+            Posts.Add(homeModel.myPosts);
+
+            return View("~/Views/Home/Home.cshtml", homeModel);
         }
 
         public ActionResult About()

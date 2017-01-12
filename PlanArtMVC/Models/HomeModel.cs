@@ -23,6 +23,7 @@ namespace PlanArtMVC.Models
         public string nickname { get; set; }
 
         //festival
+        public Post myPosts { get; set; }
         public List<Post> posts { get; set; }
 
         public HomeModel()

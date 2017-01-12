@@ -6,5 +6,5 @@ CREATE TABLE "Post" (
     time timestamp,
     "text" text,
     images list<text>,
-    PRIMARY KEY (email)
+    PRIMARY KEY (email, time)
 );
