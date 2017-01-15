@@ -47,6 +47,8 @@ namespace PlanArt
             slike.Add("treca");
             Post p = new Post("exitf@gmail.com", "exit", null, "exit.jpg", new DateTime(2017, 5, 6), slike, "ovo je neki post");
             Posts.Add(p);
+
+            List<Post> lp = Posts.Get("exitf@gmail.com");
         }
     }
 }
