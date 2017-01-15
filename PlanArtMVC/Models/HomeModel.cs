@@ -16,19 +16,23 @@ namespace PlanArtMVC.Models
         public string picture { get; set; }
         public string city { get; set; } 
         public string firstname { get; set; }
-        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } 
+        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; }
+        public List<string> following { get; set; }
 
         //artist
         public string lastname { get; set; }       
         public string nickname { get; set; }
 
         //festival
-        public Post myPosts { get; set; }
+        //...
+
+        public Post myPost { get; set; }
         public List<Post> posts { get; set; }
 
         public HomeModel()
         {
             posts = new List<Post>();
+            following = new List<string>();
         }
     }
 }

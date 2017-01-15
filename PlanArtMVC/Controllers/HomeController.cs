@@ -17,6 +17,11 @@ namespace PlanArtMVC.Controllers
             return View();
         }
 
+        public ActionResult Home(HomeModel homeModel)
+        {
+            return View(homeModel);
+        }
+
         [HttpPost]
         public ActionResult ChangeProfilePicture(HttpPostedFileBase file, HomeModel model)
         {
@@ -71,13 +76,12 @@ namespace PlanArtMVC.Controllers
                 {
                     string path = Path.Combine(Server.MapPath("~/Content/postedPictures"), Path.GetFileName(file.FileName));
                     file.SaveAs(path);
-                    lista.Add(Picture.ToBase64("~/Content/postedPictures/", Path.GetFileName(file.FileName)));
+                    lista.Add(Picture.ToBase64("~/Content/postedPictures/", file.FileName));
                 }
             }
 
-            homeModel.myPosts = new PlanArt.Data_Access.Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPosts.text);
-            homeModel.posts.Add(homeModel.myPosts);
-            Posts.Add(homeModel.myPosts);
+            homeModel.myPost = new PlanArt.Data_Access.Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPost.text);
+            Posts.Add(homeModel.myPost);
 
             return View("~/Views/Home/Home.cshtml", homeModel);
         }

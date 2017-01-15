@@ -16,10 +16,11 @@ namespace PlanArt.QueryEntities
         public string nickname { get; set; } //    
         public string password { get; set; } //   
         public string picture { get; set; } //
+        public List<string> following { get; set; } //
 
         public Artist()
         {
-
+            following = new List<string>();
         }
 
         public Artist(string email, string password, string city, string firstname, string lastname, string nickname, string picture)
@@ -31,6 +32,7 @@ namespace PlanArt.QueryEntities
             this.lastname = lastname;
             this.nickname = nickname;
             this.picture = picture;
+            following = new List<string>();
         }
     }
 }

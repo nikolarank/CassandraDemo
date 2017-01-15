@@ -39,6 +39,8 @@ namespace PlanArtMVC.Controllers
                     homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", artist.picture);
                     homeModel.lastname = artist.lastname;
                     homeModel.nickname = artist.nickname;
+                    homeModel.following = artist.following;
+                    homeModel.posts = Posts.GetToHome(homeModel.following);
                 }
                 else
                     if (festival.email != null)
@@ -50,6 +52,8 @@ namespace PlanArtMVC.Controllers
                         homeModel.firstname = festival.firstname;
                         homeModel.calendar = festival.calendar;
                         homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", festival.picture);
+                        homeModel.following = festival.following;
+                        homeModel.posts = Posts.GetToHome(homeModel.following);
                     }
 
                 return View("~/Views/Home/Home.cshtml", homeModel);

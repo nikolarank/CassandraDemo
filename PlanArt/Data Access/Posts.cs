@@ -11,14 +11,6 @@ namespace PlanArt.Data_Access
 {
     public class Posts
     {
-
-        public static long UnixTimeNow(DateTime time)
-        {
-            var timeSpan = (time - new DateTime(1970, 1, 1, 0, 0, 0));
-            return 1000 * (long)timeSpan.TotalSeconds;
-
-        }
-
         public static void Add(Post post)
         {
             ISession session = SessionManager.GetSession();
@@ -29,7 +21,7 @@ namespace PlanArt.Data_Access
             string json = JsonConvert.SerializeObject(post.images);
             json = json.Replace("\"", "'");
             RowSet postData = session.Execute("insert into \"Post\" (email, firstname, lastname, text, profilepic, time, images) " +
-                  "  values ('" + post.email + "', '" + post.firstname + "','" + post.lastname + "','" + post.text + "','" + post.profilepic + "','" + (UnixTimeNow(DateTime.Now)).ToString() + "'," + json + ");");
+                  "  values ('" + post.email + "', '" + post.firstname + "','" + post.lastname + "','" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
         }
 
         public static List<Post> Get(string email)
@@ -52,14 +44,31 @@ namespace PlanArt.Data_Access
                     post.profilepic = postRow["profilepic"] != null ? postRow["profilepic"].ToString() : string.Empty;
                     post.text = postRow["text"] != null ? postRow["text"].ToString() : string.Empty;
                     post.time = DateTime.Parse(postRow["time"].ToString());
-                    IEnumerable<string> a = (IEnumerable<string>)postRow["images"];
-                    post.images = a.ToList();
+                    post.images = postRow["images"] != null ? ((IEnumerable<string>)postRow["images"]).ToList() : null;
                 }
                 posts.Add(post);
             }
 
             return posts;
 
+        }
+
+        public static List<Post> GetToHome(List<string> following)
+        {
+            ISession session = SessionManager.GetSession();
+            List<Post> posts = new List<Post>();
+            if (session == null)
+                return null;
+
+            if (following != null)
+            {
+                foreach (string fol in following)
+                {
+                    posts.AddRange(Get(fol));
+                }
+            }
+
+            return posts.OrderByDescending(post => post.time).ToList();
         }
     }
 }

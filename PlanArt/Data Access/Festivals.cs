@@ -54,6 +54,7 @@ namespace PlanArt.Data_Access
                 festival.firstname = festivalData["firstname"] != null ? festivalData["firstname"].ToString() : string.Empty;
                 festival.city = festivalData["city"] != null ? festivalData["city"].ToString() : string.Empty;
                 festival.calendar = (SortedDictionary<DateTime, List<Performance>>)festivalData["calendar"];
+                festival.following = festivalData["following"] != null ? ((IEnumerable<string>)festivalData["following"]).ToList() : null;
             }
 
             return festival;
