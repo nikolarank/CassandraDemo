@@ -1,0 +1,96 @@
+insert into "SearchByName" JSON '{
+  "name" : "David",
+  "emails" : ["david.guetta@gmail.com", "david.bowie@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Guetta",
+  "emails" : ["david.guetta@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Justin",
+  "emails" : ["justin.biber@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Coachella",
+  "emails" : ["coachella@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Exit",
+  "emails" : ["exit@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Tomorrowland",
+  "emails" : ["tomorrowland@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Eric",
+  "emails" : ["eric.clapton@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "LoveFest",
+  "emails" : ["love.fest@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Biber",
+  "emails" : ["justin.biber@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Calvin",
+  "emails" : ["calvin.harris@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Harris",
+  "emails" : ["calvin.harris@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Rihanna",
+  "emails" : ["rihanna@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Lukas",
+  "emails" : ["acalukas@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Aca",
+  "emails" : ["acalukas@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Fenti",
+  "emails" : ["rihanna@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
+{
+  "name" : "Glastonbury",
+  "emails" : ["glastonbury@gmail.com"]
+ }';
+ 
+ insert into "SearchByName" JSON '
