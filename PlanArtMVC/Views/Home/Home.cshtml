@@ -183,17 +183,19 @@
                         <hr class="w3-clear">
                         <p>@post.text</p>
 
+                        @{string tmp = @post.email + @post.time;}
+
                         <div class="w3-content w3-display-container">
                             @foreach (var img in post.images)
                             {
-                                <img class=@post.email src=@img style="width:100%">                              
+                                <img class=@tmp src=@img style="width:100%">                              
                             } 
 
                             
-                            <input type="hidden" id="skriven" value=@(post.email+post.time)>
+                            <input type="hidden" id="skriven" value=@tmp>
 
-                            <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email+post.time)')">&#10094;</a>
-                            <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email+post.time)')">&#10095;</a>
+                            <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@tmp')">&#10094;</a>
+                            <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@tmp')">&#10095;</a>
                         </div>
 
                         <br>
