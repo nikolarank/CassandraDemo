@@ -175,7 +175,7 @@
 
                 @foreach (var post in Model.posts)
                 {
-                    <div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+                    <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
                         <br>
                         <img src=@post.profilepic alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
                         <span class="w3-right w3-opacity">@post.time</span>
@@ -183,17 +183,21 @@
                         <hr class="w3-clear">
                         <p>@post.text</p>
 
-                        <div class="w3-content w3-display-container">
+                        <div class="w3-content w3-display-container class='@(post.email+post.time)'">
                             @foreach (var img in post.images)
                             {
-                                <img class=@post.email src=@img style="width:100%">                              
+                                <img class='@(post.email+post.time)' src=@img style="width:100%">                              
                             } 
 
                             
-                            <input type="hidden" id="skriven" value=@(post.email+post.time)>
+                            <!-- <input type="hidden" id="skriven" value=@(post.email+post.time)>
+                            -->
 
-                            <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email+post.time)')">&#10094;</a>
-                            <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email+post.time)')">&#10095;</a>
+                            @if (post.images.Count > 1)
+                            {
+                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email + post.time)')">&#10094;</a>
+                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email + post.time)')">&#10095;</a>
+                            }
                         </div>
 
                         <br>

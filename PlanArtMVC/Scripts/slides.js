@@ -1,6 +1,19 @@
 ﻿var slideIndex = 1;
-var pom = document.getElementById("skriven");
-showDivs(slideIndex, pom.value);
+//var pom = document.getElementById("skriven");
+//showDivs(slideIndex, pom.value);
+
+var pom = document.getElementsByClassName("cont");
+var i;
+for (i = 0; i < pom.length; i++) {
+    var childs = pom[i].children;
+    var slike = childs[7].getElementsByTagName("img");
+    var j;
+    for (j = 1; j < slike.length; j++) {
+        slike[j].style.display = "none";
+    }
+}
+
+
 
 function plusDivs(n, id)
 {
