@@ -31,12 +31,14 @@ namespace PlanArtMVC.Controllers
                 if (artist.email != null)
                 {
                     Session["status"] = "artist";
+                    Session["email"] = artist.email;
                     homeModel.email = artist.email;
                     homeModel.password = artist.password;
                     homeModel.city = artist.city;
                     homeModel.firstname = artist.firstname;
                     homeModel.calendar = artist.calendar;
-                    homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", artist.picture);
+                    //homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", artist.picture);
+                    homeModel.picture = artist.picture;
                     homeModel.lastname = artist.lastname;
                     homeModel.nickname = artist.nickname;
                     homeModel.following = artist.following;
@@ -46,12 +48,14 @@ namespace PlanArtMVC.Controllers
                     if (festival.email != null)
                     {
                         Session["status"] = "festival";
+                        Session["email"] = festival.email;
                         homeModel.email = festival.email;
                         homeModel.password = festival.password;
                         homeModel.city = festival.city;
                         homeModel.firstname = festival.firstname;
                         homeModel.calendar = festival.calendar;
-                        homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", festival.picture);
+                        //homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", festival.picture);
+                        homeModel.picture = festival.picture;
                         homeModel.following = festival.following;
                         homeModel.posts = Posts.GetToHome(homeModel.following);
                     }

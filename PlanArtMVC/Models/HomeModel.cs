@@ -29,6 +29,11 @@ namespace PlanArtMVC.Models
         public Post myPost { get; set; }
         public List<Post> posts { get; set; }
 
+        public string ReturnPicInBase64(string virtualPath, string picName)
+        {
+            return Picture.ToBase64(virtualPath, picName);
+        }
+
         public HomeModel()
         {
             posts = new List<Post>();

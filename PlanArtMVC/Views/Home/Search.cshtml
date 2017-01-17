@@ -31,21 +31,25 @@
             <!-- Middle Column -->
             <div class="w3-col m12">
 
-            @for (var i = 0; i < Model.pictures.Count; i++ )
-            { 
-                <div class="w3-container w3-card-2 w3-white w3-round w3-margin">
-                    <br>
-                    <img src=@Model.pictures[i] class="w3-left w3-margin-right" style="width:60px">
-                    <h4>@Model.objs[i].firstname @Model.objs[i].lastname</h4><br>
-                    <hr class="w3-clear">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Follow</button>
-                </div>
-            }
+                <form method="post" action="@Url.Action("Search", "Home")">
+                    @for (var i = 0; i < Model.pictures.Count; i++)
+                    {
+                        <div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+                            <br>
+                            <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.pictures[i]) class="w3-left w3-margin-right" style="width:60px">
+                            <h4>
+                                @Model.objs[i].firstname 
+                                @Model.objs[i].lastname
+
+                                <button class="w3-btn w3-theme-d1 w3-margin-bottom" id="follow"><i class="fa fa-user"></i>  Follow</button>
+                            </h4>
+                            <br>     
+                        </div>
+                    }
+                </form>
 
 
-                
-                <!-- End Middle Column -->
+                    <!-- End Middle Column -->
             </div>
 
 

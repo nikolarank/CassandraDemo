@@ -39,7 +39,8 @@ namespace PlanArtMVC.Controllers
 
                 string path = Path.Combine(Server.MapPath("~/Content/profilePictures"), Path.GetFileName(file.FileName));
                 file.SaveAs(path);
-                model.picture = Picture.ToBase64("~/Content/profilePictures/", Path.GetFileName(file.FileName));
+                //model.picture = Picture.ToBase64("~/Content/profilePictures/", Path.GetFileName(file.FileName));
+                model.picture = file.FileName;
             }
             return View("~/Views/Home/Home.cshtml", model);
         }
@@ -59,7 +60,8 @@ namespace PlanArtMVC.Controllers
             List<string> lista = SearchByNames.ReturnByName(ime);
             for (int i = 0; i < lista.Count; i++ )
             {
-                model.pictures.Add(Picture.ToBase64("~/Content/profilePictures/", ArtistFestivalSearchs.Get(lista[i]).picture));
+                //model.pictures.Add(Picture.ToBase64("~/Content/profilePictures/", ArtistFestivalSearchs.Get(lista[i]).picture));
+                model.pictures.Add(ArtistFestivalSearchs.Get(lista[i]).picture);
                 model.objs.Add(ArtistFestivalSearchs.Get(lista[i]));        
             }
 
@@ -76,7 +78,7 @@ namespace PlanArtMVC.Controllers
                 {
                     string path = Path.Combine(Server.MapPath("~/Content/postedPictures"), Path.GetFileName(file.FileName));
                     file.SaveAs(path);
-                    lista.Add(Picture.ToBase64("~/Content/postedPictures/", file.FileName));
+                    lista.Add(file.FileName);
                 }
             }
 

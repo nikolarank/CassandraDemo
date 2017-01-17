@@ -31,8 +31,8 @@
             <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
                 <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
             </li>
-            <li><a href="#" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a></li>
-            <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a></li>
+            <li><a href="#" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>PlanArt</a></li>
+            @*<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a></li>
             <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a></li>
             <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
             <li class="w3-hide-small w3-dropdown-hover">
@@ -42,7 +42,24 @@
                     <a href="#">John Doe posted on your wall</a>
                     <a href="#">Jane likes your post</a>
                 </div>
+            </li>*@
+
+
+            <li>
+                <form action="@Url.Action("Search","Home")" method="post">
+                    <div class="inp">
+                        <span>
+                            <input list="listaTagova" id="traziInput" name="tagovi" style="display:inline" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
+                            <button class="btn btn-default" id="btnsrch" style="display:inline"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                        
+                        <datalist id="listaTagova"></datalist>
+                        
+                    </div>
+                </form>
             </li>
+
+
             <li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
         </ul>
     </div>
@@ -60,30 +77,37 @@
 
     @*Search*@
 
-    <form action="@Url.Action("Search","Home")" method="post">
+    @*<form action="@Url.Action("Search","Home")" method="post">
         <div class="inp">
             <input list="listaTagova" id="traziInput" name="tagovi" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
             <datalist id="listaTagova"></datalist>
             <button class="btn btn-default" id="btnsrch"><span class="glyphicon glyphicon-search"></span></button>
         </div>
-    </form>
+    </form>*@
 
     <div>
         @RenderBody()
         
     </div>
     <!-- Footer -->
-    <footer class="w3-container w3-theme-d3 w3-padding-16">
-        <h5>Footer</h5>
+    @*<footer class="w3-container w3-theme-d3 w3-padding-16">*@
+    <footer class="w3-container w3-theme-d3 w3-padding-0" style="position:fixed; bottom:0; width:100%; background-color:white; opacity:1;">
+        @*<h5>Footer</h5>*@
+        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:right; color:white;"> Copyright 2017 PlanArt.com</div>
     </footer>
 
-    <footer class="w3-container w3-theme-d5">
+
+    @*<footer class="w3-container w3-theme-d5">
         <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>
+    </footer>*@
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <footer class="footer" style="position: fixed;bottom: 0;width: 100%;  background-color: white; opacity:1;">
 </body>
 </html>
 
