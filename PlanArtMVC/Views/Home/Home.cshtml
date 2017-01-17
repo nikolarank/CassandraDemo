@@ -147,7 +147,12 @@
                         {
                             <div class="w3-container w3-padding">
                                 <h6 class="w3-opacity">Social Media template by w3.css</h6>
-                                @Html.TextBoxFor(m => m.myPost.text, new { @class = "w3-border w3-padding", @name = "text", @placeholder = "text", @style = "width:1000px;" })
+                                
+                                @Html.HiddenFor(m => m.myPost.text, new { @id = "post_hidden", @class = "w3-border w3-padding", @name = "text", @placeholder = "text", @style = "width:1000px;" })
+                               
+                                <p contenteditable="true" class="w3-border w3-padding" id="status" onkeydown="postavi()"></p>
+
+                                
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="file" name="files" id="files" multiple />
@@ -163,8 +168,6 @@
                                 @Html.HiddenFor(m => m.calendar)
                                 @Html.HiddenFor(m => m.lastname)
                                 @Html.HiddenFor(m => m.nickname)
-
-                                
 
                                 <button class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
                             </div>
@@ -288,7 +291,7 @@
         }
     </script>
 
+    <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slides.js"></script>
-
 </body>
 </html>

@@ -14,6 +14,10 @@ for (i = 0; i < pom.length; i++) {
 }
 
 
+function postavi() {
+    var status = document.getElementById("status").innerHTML;
+    document.getElementById("post_hidden").innerHTML = status;
+}
 
 function plusDivs(n, id)
 {
