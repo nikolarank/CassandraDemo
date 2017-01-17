@@ -209,7 +209,7 @@
     <Content Include="Scripts\postavi.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\slides.js" />
+    <Content Include="Scripts\slide.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -257,6 +257,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PlanArtRedisCache\PlanArtRedisCache.csproj">
+      <Project>{1a300e30-762b-460d-bf38-8f64e60031e1}</Project>
+      <Name>PlanArtRedisCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlanArt\PlanArt.csproj">
       <Project>{d966dd24-de0f-47a8-8cab-757d8057ccbc}</Project>
       <Name>PlanArt</Name>
