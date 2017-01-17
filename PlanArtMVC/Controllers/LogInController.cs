@@ -7,6 +7,7 @@ using PlanArt;
 using PlanArtMVC.Models;
 using PlanArt.QueryEntities;
 using PlanArt.Data_Access;
+using PlanArtRedisCache.Data_Layer;
 
 namespace PlanArtMVC.Controllers
 {
@@ -42,7 +43,10 @@ namespace PlanArtMVC.Controllers
                     homeModel.lastname = artist.lastname;
                     homeModel.nickname = artist.nickname;
                     homeModel.following = artist.following;
-                    homeModel.posts = Posts.GetToHome(homeModel.following);
+                    //homeModel.posts = Posts.GetToHome(homeModel.following);
+                    //homeModel.posts = Posts.GetToHome(homeModel.following);
+                    PostsCache.LoadToRedis(homeModel.email, artist.following);
+                    homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 15);
                 }
                 else
                     if (festival.email != null)
@@ -57,7 +61,9 @@ namespace PlanArtMVC.Controllers
                         //homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", festival.picture);
                         homeModel.picture = festival.picture;
                         homeModel.following = festival.following;
-                        homeModel.posts = Posts.GetToHome(homeModel.following);
+                        //homeModel.posts = Posts.GetToHome(homeModel.following);
+                        PostsCache.LoadToRedis(homeModel.email, festival.following);
+                        homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 1);
                     }
 
                 return View("~/Views/Home/Home.cshtml", homeModel);

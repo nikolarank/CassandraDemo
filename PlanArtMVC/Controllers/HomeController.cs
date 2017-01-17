@@ -7,6 +7,7 @@ using System.IO;
 using PlanArtMVC.Models;
 using PlanArt.QueryEntities;
 using PlanArt.Data_Access;
+using PlanArtRedisCache.Data_Layer;
 
 namespace PlanArtMVC.Controllers
 {
@@ -83,7 +84,10 @@ namespace PlanArtMVC.Controllers
             }
 
             homeModel.myPost = new PlanArt.Data_Access.Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPost.text);
-            Posts.Add(homeModel.myPost);
+
+            homeModel.posts.Add(homeModel.myPost);
+            //Posts.Add(homeModel.myPost);
+            PostsCache.AddPost(homeModel.myPost);
 
             return View("~/Views/Home/Home.cshtml", homeModel);
         }
