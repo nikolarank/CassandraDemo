@@ -31,7 +31,7 @@ namespace PlanArtMVC.Controllers
                 if (artist.email != null)
                 {
                     Session["status"] = "artist";
-                    Session["email"] = artist.email;
+                    Session["user"] = artist;
                     homeModel.email = artist.email;
                     homeModel.password = artist.password;
                     homeModel.city = artist.city;
@@ -48,7 +48,7 @@ namespace PlanArtMVC.Controllers
                     if (festival.email != null)
                     {
                         Session["status"] = "festival";
-                        Session["email"] = festival.email;
+                        Session["user"] = festival;
                         homeModel.email = festival.email;
                         homeModel.password = festival.password;
                         homeModel.city = festival.city;

@@ -16,6 +16,11 @@ namespace PlanArtMVC.Models
             return Picture.ToBase64(virtualPath, picName);
         }
 
+        public Artist castToArtist()
+        {
+            return (Artist)
+        }
+
         public SearchModel()
         {
             objs = new List<ArtistFestivalSearch>();
