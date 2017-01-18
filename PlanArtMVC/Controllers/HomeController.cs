@@ -138,5 +138,34 @@ namespace PlanArtMVC.Controllers
 
             return View();
         }
+
+        public ActionResult FetchData(string email, int skipCount, int takeCount)
+        {
+            List<string> posts = PostsCache.GetFromRedisJSON(email, skipCount, skipCount + takeCount);
+            //List<Post> posts = PostsCache.GetFromRedis(email, skipCount, skipCount + takeCount);
+            //foreach(Post p in posts)
+            //{
+            //    p.profilepic = PlanArt.QueryEntities.Picture.ToBase64("~/Content/profilePictures/", p.profilepic);
+            //}
+            //List<JsonResult> js = new List<JsonResult>();
+            //foreach (Post p in posts)
+            //{
+            //    JsonResult a = Json(
+            //        new
+            //        {
+            //            email = p.email,
+            //            firsname = p.firstname,
+            //            lastname = p.lastname,
+            //            profilepic = p.profilepic,
+            //            text = p.text,
+            //            time = p.time,
+            //            images = p.images
+            //        },
+            //        JsonRequestBehavior.AllowGet
+            //        );
+            //    js.Add(a);
+            //}
+            return Json(new { items = posts, count = posts.Count() }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

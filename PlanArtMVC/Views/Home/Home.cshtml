@@ -1,7 +1,7 @@
 ﻿@model PlanArtMVC.Models.HomeModel
 
 @{
-        Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="~/Scripts/jquery-1.12.3.js"></script>
 <style>
     html, body, h1, h2, h3, h4, h5 {
         font-family: "Open Sans", sans-serif;
@@ -36,7 +37,7 @@
                         <p class="w3-center"><img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.picture) style="display:inline; margin-bottom:5px;" alt="ProfilePhoto" width="106" height="106" data-toggle="collapse" data-target="#profilePhotoChange" data-toggle="tooltip" title="Click here to change your profile photo. Your previous profile photo will be removed."></p>   
                         <div class="collapse" id="profilePhotoChange" style="text-align:center;">
                             <div class="row">
-                                @using (Html.BeginForm("ChangeProfilePicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" } ))
+                                @using (Html.BeginForm("ChangeProfilePicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     <p class="pull-left" style="margin-left:15px;">
                                         Upload your profile photo:<button class="btn btn-info btn-block">Upload</button>
@@ -44,7 +45,7 @@
                                     <div class="col-md-12">
                                         <input type="file" name="file" id="file" />
                                     </div>       
-                                    
+
                                     //prosledjujemo ceo model kontroleru   
                                     @Html.HiddenFor(m => m.email)        
                                     @Html.HiddenFor(m => m.password) 
@@ -138,7 +139,7 @@
             </div>
 
             <!-- Middle Column -->
-            <div class="w3-col m7">
+            <div class="w3-col m7" id="result">
 
                 <div class="w3-row-padding">
                     <div class="w3-col m12">
@@ -186,14 +187,14 @@
                         <hr class="w3-clear">
                         <p>@post.text</p>
 
-                        <div class="w3-content w3-display-container class='@(post.email+post.time)'">
+                        <div class="w3-content w3-display-container class='@(post.email + post.time)'">
                             @foreach (var img in post.images)
                             {
-                                <img class='@(post.email+post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
+                                <img class='@(post.email + post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
                             } 
 
                             
-                            <!-- <input type="hidden" id="skriven" value=@(post.email+post.time)>
+                            <!-- <input type="hidden" id="skriven" value=@(post.email + post.time)>
                             -->
 
 
@@ -209,7 +210,7 @@
                         <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                         <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
                     </div>
-                     
+
                 }
 
                 <!-- End Middle Column -->
@@ -289,8 +290,19 @@
                 x.className = x.className.replace(" w3-show", "");
             }
         }
-    </script>
 
+    </script>
+    <script src="~/Scripts/infinite_scroll.js"></script>
+    <script type="text/javascript">
+
+     var yourApp = yourApp || {};
+     yourApp.Urls = yourApp.Urls || {};
+     yourApp.Urls.baseUrl = '@Url.Content("~")';
+     yourApp.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
+     var email = '@Model.email';
+
+        
+    </script>
     <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slide.js"></script>
 </body>

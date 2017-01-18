@@ -47,6 +47,11 @@ namespace PlanArtRedisCache.Data_Layer
             return posts;
         }
 
+        public static List<string> GetFromRedisJSON(string email, int startingFrom, int endingAt)
+        {
+            return redis.GetRangeFromList("show_posts_" + email, startingFrom, endingAt);
+        }
+
         public static void AddPost(Post post)
         {
             var novi = redis.Lists["new_posts"];
