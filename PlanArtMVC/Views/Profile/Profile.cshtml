@@ -1,4 +1,4 @@
-﻿@model PlanArtMVC.Models.HomeModel
+﻿@model PlanArtMVC.Models.ProfileModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,7 +22,7 @@
 </style>
 <body class="w3-theme-l5">
 
-    
+
 
     <!-- Page Container -->
     <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
@@ -34,7 +34,7 @@
                 <div class="w3-card-2 w3-round w3-white">
                     <div class="w3-container">
                         <h4 class="w3-center">@Model.firstname @Model.lastname</h4>
-                        <p class="w3-center"><img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.picture) style="display:inline; margin-bottom:5px;" alt="ProfilePhoto" width="106" height="106" data-toggle="collapse" data-target="#profilePhotoChange" data-toggle="tooltip" title="Click here to change your profile photo. Your previous profile photo will be removed."></p>   
+                        <p class="w3-center"><img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.picture) style="display:inline; margin-bottom:5px;" alt="ProfilePhoto" width="106" height="106" data-toggle="collapse" data-target="#profilePhotoChange" data-toggle="tooltip" title="Click here to change your profile photo. Your previous profile photo will be removed."></p>
                         <div class="collapse" id="profilePhotoChange" style="text-align:center;">
                             <div class="row">
                                 @using (Html.BeginForm("ChangeProfilePicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -44,17 +44,17 @@
                                     </p>
                                     <div class="col-md-12">
                                         <input type="file" name="file" id="file" />
-                                    </div>       
+                                    </div>
 
-                                    //prosledjujemo ceo model kontroleru   
-                                    @Html.HiddenFor(m => m.email)        
-                                    @Html.HiddenFor(m => m.password) 
-                                    @Html.HiddenFor(m => m.picture) 
-                                    @Html.HiddenFor(m => m.city) 
-                                    @Html.HiddenFor(m => m.firstname) 
-                                    @Html.HiddenFor(m => m.calendar) 
-                                    @Html.HiddenFor(m => m.lastname) 
-                                    @Html.HiddenFor(m => m.nickname)                                              
+                                    //prosledjujemo ceo model kontroleru
+                                    @Html.HiddenFor(m => m.email)
+                                    @Html.HiddenFor(m => m.password)
+                                    @Html.HiddenFor(m => m.picture)
+                                    @Html.HiddenFor(m => m.city)
+                                    @Html.HiddenFor(m => m.firstname)
+                                    @Html.HiddenFor(m => m.calendar)
+                                    @Html.HiddenFor(m => m.lastname)
+                                    @Html.HiddenFor(m => m.nickname)
                                 }
                             </div>
                         </div>
@@ -144,35 +144,35 @@
                 <div class="w3-row-padding">
                     <div class="w3-col m12">
                         <div class="w3-card-2 w3-round w3-white">
-                        @using (Html.BeginForm("Post", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                            <div class="w3-container w3-padding">
-                                <h6 class="w3-opacity">Social Media template by w3.css</h6>
-                                
-                                @Html.HiddenFor(m => m.myPost.text, new { @id = "post_hidden", @class = "w3-border w3-padding", @name = "text", @placeholder = "text", @style = "width:1000px;" })
-                               
-                                <p contenteditable="true" class="w3-border w3-padding" id="status" onkeyup="postavi()"></p>
+                            @using (Html.BeginForm("Post", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="w3-container w3-padding">
+                                    <h6 class="w3-opacity">Social Media template by w3.css</h6>
 
-                                
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="file" name="files" id="files" multiple />
+                                    @Html.HiddenFor(m => m.myPost.text, new { @id = "post_hidden", @class = "w3-border w3-padding", @name = "text", @placeholder = "text", @style = "width:1000px;" })
+
+                                    <p contenteditable="true" class="w3-border w3-padding" id="status" onkeyup="postavi()"></p>
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="file" name="files" id="files" multiple />
+                                        </div>
                                     </div>
+
+                                    @*//prosledjujemo ceo model kontroleru*@
+                                    @Html.HiddenFor(m => m.email)
+                                    @Html.HiddenFor(m => m.password)
+                                    @Html.HiddenFor(m => m.picture)
+                                    @Html.HiddenFor(m => m.city)
+                                    @Html.HiddenFor(m => m.firstname)
+                                    @Html.HiddenFor(m => m.calendar)
+                                    @Html.HiddenFor(m => m.lastname)
+                                    @Html.HiddenFor(m => m.nickname)
+
+                                    <button class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
                                 </div>
-
-                                @*//prosledjujemo ceo model kontroleru*@
-                                @Html.HiddenFor(m => m.email)
-                                @Html.HiddenFor(m => m.password)
-                                @Html.HiddenFor(m => m.picture)
-                                @Html.HiddenFor(m => m.city)
-                                @Html.HiddenFor(m => m.firstname)
-                                @Html.HiddenFor(m => m.calendar)
-                                @Html.HiddenFor(m => m.lastname)
-                                @Html.HiddenFor(m => m.nickname)
-
-                                <button class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
-                            </div>
-                        }
+                            }
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,8 @@
                         <br>
                         <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", post.profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
                         <span class="w3-right w3-opacity">@post.time</span>
-                        <h4>@post.firstname @if (post.lastname != null) {@post.lastname}</h4><br>
+                        <h4>@post.firstname @if (post.lastname != null)
+                        {@post.lastname}</h4><br>
                         <hr class="w3-clear">
                         <p>@post.text</p>
 
@@ -191,9 +192,9 @@
                             @foreach (var img in post.images)
                             {
                                 <img class='@(post.email + post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
-                            } 
+                            }
 
-                            
+
                             <!-- <input type="hidden" id="skriven" value=@(post.email + post.time)>
                             -->
 
@@ -221,15 +222,13 @@
                 <div class="w3-card-2 w3-round w3-white w3-center">
                     <div class="w3-container">
                         <p>Upcoming Event:</p>
-                            @*<img src= '@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.upcoming.FestPic)' alt="FestivalPicture" style="width:100%;">*@
-                        <img src= @{string a = HttpContext.Current.Server.MapPath("~/Content/profilePictures/") + Model.upcoming.FestPic;} alt="FestivalPicture" style="width:100%;">
+                        <img src='@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.upcoming.FestPic)' alt="FestivalPicture" style="width:100%;">
                         <br />
-                            <p><strong>@@ @Model.upcoming.FestName</strong></p>
-                            <p>@Model.upcoming.datetime.Day.@Model.upcoming.datetime.Month.@Model.upcoming.datetime.Year</p>
-                            <p>@Model.upcoming.datetime.TimeOfDay</p>
-                        <p><button onclick="location.href='@Url.Action("Visit", "Profile")'" class"="w3-btn w3-btn-block w3-theme-l4">All Events</button></p>
-
-                     </div>
+                        <p><strong>@@ @Model.upcoming.FestName</strong></p>
+                        <p>@Model.upcoming.datetime.Day.@Model.upcoming.datetime.Month.@Model.upcoming.datetime.Year</p>
+                        <p>@Model.upcoming.datetime.TimeOfDay</p>
+                        <p><button class="w3-btn w3-btn-block w3-theme-l4">All Events</button></p>
+                    </div>
                 </div>
                 <br>
 
@@ -269,7 +268,7 @@
     </div>
     <br>
 
-    
+
 
     <script>
         // Accordion
@@ -303,15 +302,9 @@
      yourApp.Urls = yourApp.Urls || {};
      yourApp.Urls.baseUrl = '@Url.Content("~")';
      yourApp.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
-
-        var slike = yourApp || {};
-        slike.Urls = yourApp.Urls || {};
-        slike.Urls.baseUrl = '@Url.Content("~")';
-        slike.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
-
      var email = '@Model.email';
 
-        
+
     </script>
     <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slide.js"></script>

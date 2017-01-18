@@ -47,6 +47,8 @@ namespace PlanArtMVC.Controllers
                     //homeModel.posts = Posts.GetToHome(homeModel.following);
                     PostsCache.LoadToRedis(homeModel.email, artist.following);
                     homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                    EventsCache.LoadToRedis(homeModel.email);
+                    homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
                 }
                 else
                     if (festival.email != null)
@@ -64,7 +66,9 @@ namespace PlanArtMVC.Controllers
                         //homeModel.posts = Posts.GetToHome(homeModel.following);
                         PostsCache.LoadToRedis(homeModel.email, festival.following);
                         homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
-                    }
+                        EventsCache.LoadToRedis(homeModel.email);
+                        homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
+                }
 
                 return View("~/Views/Home/Home.cshtml", homeModel);
             }

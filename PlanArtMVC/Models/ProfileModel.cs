@@ -1,50 +1,36 @@
-﻿using System;
+﻿using PlanArt.QueryEntities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using PlanArt.Data_Access;
-using PlanArt.QueryEntities;
 
 namespace PlanArtMVC.Models
 {
-    public class HomeModel
+    public class ProfileModel
     {
-        //zajednicki atributi artista i festivala
         public string email { get; set; }
         public string password { get; set; }
         public string picture { get; set; }
-        public string city { get; set; } 
+        public string city { get; set; }
         public string firstname { get; set; }
         public SortedDictionary<DateTime, List<Performance>> calendar { get; set; }
         public List<string> following { get; set; }
 
-        //artist
-        public string lastname { get; set; }       
+        public string lastname { get; set; }
         public string nickname { get; set; }
 
-        //festival
-        //...
-
-        public Post myPost { get; set; }
-        public List<Post> posts { get; set; }
-
-        public Event upcoming { get; set; }
+        public Event newEvent { get; set; }
+        public List<Event> events { get; set; }
 
         public string ReturnPicInBase64(string virtualPath, string picName)
         {
             return Picture.ToBase64(virtualPath, picName);
         }
-
-        public HomeModel()
+        public ProfileModel()
         {
-            posts = new List<Post>();
+            events = new List<Event>();
             following = new List<string>();
         }
+
     }
 }
-
-        
-          
-          
-  

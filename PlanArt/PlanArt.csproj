@@ -74,8 +74,10 @@
   <ItemGroup>
     <Compile Include="Data Access\ArtistFestivalSearchs.cs" />
     <Compile Include="Data Access\Artists.cs" />
+    <Compile Include="Data Access\Events.cs" />
     <Compile Include="Data Access\Festivals.cs" />
     <Compile Include="Data Access\Posts.cs" />
+    <Compile Include="QueryEntities\Event.cs" />
     <Compile Include="QueryEntities\Post.cs" />
     <Compile Include="Data Access\SearchByNames.cs" />
     <Compile Include="Program.cs" />

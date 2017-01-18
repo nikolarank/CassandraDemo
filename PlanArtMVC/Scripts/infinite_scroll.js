@@ -30,7 +30,14 @@ function FetchDataFromServer() {
                 container.append(br);
 
                 var img = $('<img />', {
-                    src: obj.profilepic,
+                    src: $.ajax({
+                        url: slike,
+                        data: { name: obj.profilepic },
+                        success: function(picture){
+                            return picture;
+                        }
+                    }
+                        ),
                     class: 'w3-left w3-margin-right',
                     alt: 'Avatar',
                     style: 'width:60px'
