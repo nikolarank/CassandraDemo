@@ -63,7 +63,7 @@ namespace PlanArtMVC.Controllers
                         homeModel.following = festival.following;
                         //homeModel.posts = Posts.GetToHome(homeModel.following);
                         PostsCache.LoadToRedis(homeModel.email, festival.following);
-                        homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 1);
+                        homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 14);
                     }
 
                 return View("~/Views/Home/Home.cshtml", homeModel);

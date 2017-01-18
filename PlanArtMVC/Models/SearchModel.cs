@@ -16,10 +16,15 @@ namespace PlanArtMVC.Models
             return Picture.ToBase64(virtualPath, picName);
         }
 
-        //public Artist castToArtist()
-        //{
-        //    return (Artist)
-        //}
+        public Artist castToArtist()
+        {
+            return (Artist)HttpContext.Current.Session["user"];
+        }
+
+        public Festival castToFestival()
+        {
+            return (Festival)HttpContext.Current.Session["user"];
+        }
 
         public SearchModel()
         {

@@ -69,6 +69,39 @@ namespace PlanArtMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Follow(SearchModel model, string forFollow, string tip)
+        {
+            if (Session["status"] == "artist")
+            {
+                if (tip == "1")
+                {
+                    Artists.Follow(((Artist)Session["user"]).email, forFollow);
+                    ((Artist)Session["user"]).following.Add(forFollow);
+                }
+                else
+                {
+                    Artists.Unfollow(((Artist)Session["user"]).email, forFollow);
+                    ((Artist)Session["user"]).following.Remove(forFollow);
+                }                 
+            }
+            else
+            {
+                if (tip == "1")
+                {
+                    Festivals.Follow(((Festival)Session["user"]).email, forFollow);
+                    ((Festival)Session["user"]).following.Add(forFollow);
+                }                 
+                else
+                {
+                    Festivals.Unfollow(((Festival)Session["user"]).email, forFollow);
+                    ((Festival)Session["user"]).following.Remove(forFollow);
+                }
+                    
+            }
+
+            return View("~/Views/Home/Search.cshtml", model);
+        }
+
         [HttpPost]
         public ActionResult Post(IEnumerable<HttpPostedFileBase> files, HomeModel homeModel)
         {

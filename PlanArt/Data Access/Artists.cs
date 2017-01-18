@@ -62,6 +62,24 @@ namespace PlanArt.Data_Access
             RowSet artistData = session.Execute("update \"Artist\" set picture =" + "'" + picture + "' where \"email\"=" + "'" + email + "'");
         }
 
+        public static void Follow(string emailSend, string emailRec)
+        {
+            ISession session = SessionManager.GetSession();
+            if (session == null)
+                return;
+
+            RowSet artistData = session.Execute("update \"Artist\" set following = following + ['" + emailRec + "'] where \"email\"='" + emailSend + "';");
+        }
+
+        public static void Unfollow(string emailSend, string emailRec)
+        {
+            ISession session = SessionManager.GetSession();
+            if (session == null)
+                return;
+
+            RowSet artistData = session.Execute("update \"Artist\" set following = following - ['" + emailRec + "'] where \"email\"='" + emailSend + "';");
+        }
+
     }
 
 }
