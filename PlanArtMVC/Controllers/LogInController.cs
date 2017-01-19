@@ -33,6 +33,8 @@ namespace PlanArtMVC.Controllers
                 {
                     Session["status"] = "artist";
                     Session["user"] = artist;
+                    if (((Artist)Session["user"]).following == null)
+                        ((Artist)Session["user"]).following = new List<string>();
                     homeModel.email = artist.email;
                     homeModel.password = artist.password;
                     homeModel.city = artist.city;
@@ -55,6 +57,8 @@ namespace PlanArtMVC.Controllers
                     {
                         Session["status"] = "festival";
                         Session["user"] = festival;
+                        if (((Festival)Session["user"]).following == null)
+                            ((Festival)Session["user"]).following = new List<string>();
                         homeModel.email = festival.email;
                         homeModel.password = festival.password;
                         homeModel.city = festival.city;

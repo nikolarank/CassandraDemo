@@ -220,15 +220,26 @@
             <div class="w3-col m2">
                 <div class="w3-card-2 w3-round w3-white w3-center">
                     <div class="w3-container">
-                        <p>Upcoming Event:</p>
-                            @*<img src= '@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.upcoming.FestPic)' alt="FestivalPicture" style="width:100%;">*@
-                        <img src= @{string a = HttpContext.Current.Server.MapPath("~/Content/profilePictures/") + Model.upcoming.FestPic;} alt="FestivalPicture" style="width:100%;">
-                        <br />
+                        @using (Html.BeginForm("Profile", "Profile"))
+                        {
+                            @*//prosledjujemo ceo model kontroleru*@
+                            @Html.HiddenFor(m => m.email)
+                            @Html.HiddenFor(m => m.password)
+                            @Html.HiddenFor(m => m.picture)
+                            @Html.HiddenFor(m => m.city)
+                            @Html.HiddenFor(m => m.firstname)
+                            @Html.HiddenFor(m => m.calendar)
+                            @Html.HiddenFor(m => m.lastname)
+                            @Html.HiddenFor(m => m.nickname)
+                            
+                            <p>Upcoming Event:</p>
+                            <img src= @Model.ReturnPicInBase64("~/Content/profilePictures/", Model.upcoming.FestPic) alt="FestivalPicture" style="width:100%;">
+                            <br />
                             <p><strong>@@ @Model.upcoming.FestName</strong></p>
                             <p>@Model.upcoming.datetime.Day.@Model.upcoming.datetime.Month.@Model.upcoming.datetime.Year</p>
                             <p>@Model.upcoming.datetime.TimeOfDay</p>
-                        <p><button onclick="location.href='@Url.Action("Visit", "Profile")'" class"="w3-btn w3-btn-block w3-theme-l4">All Events</button></p>
-
+                            <p><button class="w3-btn w3-btn-block w3-theme-l4">All Events</button></p>
+                        }
                      </div>
                 </div>
                 <br>
@@ -304,10 +315,10 @@
      yourApp.Urls.baseUrl = '@Url.Content("~")';
      yourApp.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
 
-        var slike = yourApp || {};
-        slike.Urls = yourApp.Urls || {};
+        var slike = slike || {};
+        slike.Urls = slike.Urls || {};
         slike.Urls.baseUrl = '@Url.Content("~")';
-        slike.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
+        slike.Urls.editUserUrl = '@Url.Action("Vrati", "Slike")';
 
      var email = '@Model.email';
 

@@ -12,10 +12,21 @@ namespace PlanArtMVC.Controllers
 {
     public class ProfileController : Controller
     {
-        // GET: Profile
-        public ActionResult Index()
+        public ActionResult Profile(HomeModel homeModel)
         {
-            return View();
+            ProfileModel profileModel = new ProfileModel();
+            profileModel.events = EventsCache.GetFromRedis(homeModel.email, 0, 7);
+            profileModel.calendar = homeModel.calendar;
+            profileModel.city = homeModel.city;
+            profileModel.email = homeModel.email;
+            profileModel.firstname = homeModel.firstname;
+            profileModel.following = homeModel.following;
+            profileModel.lastname = homeModel.lastname;
+            profileModel.nickname = homeModel.nickname;
+            profileModel.password = homeModel.password;
+            profileModel.picture = homeModel.picture;
+
+            return View(profileModel);
         }
 
         public ActionResult Visit(ProfileModel model)
