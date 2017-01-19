@@ -1,6 +1,8 @@
 ﻿$(window).scroll(function () {
     if ($(window).scrollTop() + $(window).height() == $(document).height()) {
         FetchDataFromServer();
+        nova();
+        //proba();
     }
 });
 
@@ -8,11 +10,15 @@
 var skipCount = 5; // start at 6th record (assumes first 5 included in initial view)
 var takeCount = 5; // return new 5 records
 var hasMoreRecords = true;
+var picture;
+var posts;
+var slika = "LoveFest.jpg"
 
 function FetchDataFromServer() {
     if (!hasMoreRecords) {
         return;
     }
+    $.when(
     $.ajax({
         url: yourApp.Urls.editUserUrl,
         data: { email: email, skipCount: skipCount, takeCount: takeCount },
@@ -22,25 +28,19 @@ function FetchDataFromServer() {
                 hasMoreRecords = false; // signal no more records to display
             }
             $.each(data.items, function (index, item) {
+                posts = data.items;
                 var obj = jQuery.parseJSON(item);
                 var container = $('<div></div>', {
-                    class : 'w3-container w3-card-2 w3-white w3-round w3-margin cont'
+                    class: 'w3-container w3-card-2 w3-white w3-round w3-margin cont'
                 });
                 var br = $("<br />");
                 container.append(br);
 
                 var img = $('<img />', {
-                    src: $.ajax({
-                        url: slike,
-                        data: { name: obj.profilepic },
-                        success: function(picture){
-                            return picture;
-                        }
-                    }
-                        ),
                     class: 'w3-left w3-margin-right',
                     alt: 'Avatar',
-                    style: 'width:60px'
+                    style: 'width:60px',
+                    id: obj.email + obj.time
                 });
                 container.append(img);
 
@@ -50,7 +50,7 @@ function FetchDataFromServer() {
                 });
                 container.append(span);
 
-                var h4 = $('<h4></h4',{
+                var h4 = $('<h4></h4', {
                     text: obj.firstname + obj.lastname
                 });
                 container.append(h4);
@@ -89,5 +89,60 @@ function FetchDataFromServer() {
         error: function () {
             alert("error");
         }
+    })
+    ).done(function(){
+        //var i = 0;
+        for(var i = 0;i < posts.count; i++)
+        {   
+            $.ajax({
+                url: yourApp1.Urls.editUserUrl,
+                data: {
+                    name: jQuery.parseJSON(posts[i]).profilepic
+                },
+                success: function (pic) {
+                    $("#" + jQuery.parseJSON(posts[i]).email + jQuery.parseJSON(posts[i]).time).attr("src", pic);
+                }
+            })
+        }
+    }).then(function () {
+        
     });
+           
+}
+
+function nova(){
+    for (var i = 0; i < posts.length; i++) {
+        $.ajax({
+            url: yourApp1.Urls.editUserUrl,
+            data: {
+                name: jQuery.parseJSON(posts[i]).profilepic
+            },
+            success: function (pic) {
+                $("#" + jQuery.parseJSON(posts[i]).email + jQuery.parseJSON(posts[i]).time).attr("src", pic);
+            }
+        })
+    }
+}
+
+function proba() {
+    $.ajax({
+        url: yourApp1.Urls.editUserUrl,
+        data: { name: slika },
+        success: function (pic) {
+ 
+            var container = $('<div></div>', {
+                class: 'w3-container w3-card-2 w3-white w3-round w3-margin cont'
+            });
+
+            var img = $('<img />', {
+                class: 'w3-left w3-margin-right',
+                alt: 'Avatar',
+                style: 'width:60px',
+                src: pic
+            });
+            container.append(img);
+
+            $("#result").append(container);
+        }
+    })
 }
