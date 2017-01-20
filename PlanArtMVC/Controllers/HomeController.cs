@@ -136,6 +136,7 @@ namespace PlanArtMVC.Controllers
         [HttpPost]
         public ActionResult Post(IEnumerable<HttpPostedFileBase> files, HomeModel homeModel)
         {
+            string p = Request.Url.GetLeftPart(UriPartial.Authority);
             List<string> lista = new List<string>();
             foreach (var file in files)
             {
