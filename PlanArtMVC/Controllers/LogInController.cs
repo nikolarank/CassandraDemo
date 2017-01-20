@@ -48,8 +48,8 @@ namespace PlanArtMVC.Controllers
                     //homeModel.posts = Posts.GetToHome(homeModel.following);
                     //homeModel.posts = Posts.GetToHome(homeModel.following);
                     PostsCache.LoadToRedis(homeModel.email, artist.following);
-                    //homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
-                    homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
+                    homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                    //homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
                     EventsCache.LoadToRedis(homeModel.email);
                     homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
                 }
@@ -70,8 +70,8 @@ namespace PlanArtMVC.Controllers
                         homeModel.following = festival.following;
                         //homeModel.posts = Posts.GetToHome(homeModel.following);
                         PostsCache.LoadToRedis(homeModel.email, festival.following);
-                        //homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
-                       homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
+                        homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                        //homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
                         EventsCache.LoadToRedis(homeModel.email);
                         homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
                 }
@@ -90,6 +90,8 @@ namespace PlanArtMVC.Controllers
         {
             if (Session["status"] != null)
             {
+                PostsCache.SaveNewPostsToCassandra();
+                EventsCache.SaveNewEventsToCassandra();
                 Session["status"] = null;
                 Session["user"] = null;
             }

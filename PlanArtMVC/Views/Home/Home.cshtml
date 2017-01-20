@@ -83,7 +83,7 @@
                             <div class="w3-row-padding">
                                 <br>
                                 <div class="w3-half">
-                                    <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+                                    <img src='@Model.ReturnPic(@Request.Url.GetLeftPart(UriPartial.Authority), @Model.picture)' style="width:100%" class="w3-margin-bottom">
                                 </div>
                                 <div class="w3-half">
                                     <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
@@ -199,7 +199,8 @@
                 {
                     <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
                         <br>
-                        <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
+                        @*<img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">*@
+                        <img src=@Model.ReturnPic(@Request.Url.GetLeftPart(UriPartial.Authority),Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
                         <span class="w3-right w3-opacity">@Model.posts[i].time</span>
                         <h4>@Model.posts[i].firstname @if (Model.posts[i].lastname != null) {@Model.posts[i].lastname}</h4><br>
                         <hr class="w3-clear">
@@ -245,14 +246,23 @@
                             @Html.HiddenFor(m => m.calendar)
                             @Html.HiddenFor(m => m.lastname)
                             @Html.HiddenFor(m => m.nickname)
-                            
+
+                            if (@Model.upcoming != null)
+                            {
                             <p>Upcoming Event:</p>
+
                             <img src= @Model.ReturnPicInBase64("~/Content/profilePictures/", Model.upcoming.FestPic) alt="FestivalPicture" style="width:100%;">
                             <br />
                             <p><strong>@@ @Model.upcoming.FestName</strong></p>
                             <p>@Model.upcoming.datetime.Day.@Model.upcoming.datetime.Month.@Model.upcoming.datetime.Year</p>
                             <p>@Model.upcoming.datetime.TimeOfDay</p>
                             <p><button class="w3-btn w3-btn-block w3-theme-l4">All Events</button></p>
+
+                            }
+                            else
+                            {
+                                <p>There are no upcoming events at this time</p>
+                            }
                         }
                      </div>
                 </div>
@@ -328,13 +338,13 @@
         yourApp.Urls.editUserUrl = '@Url.Action("Like", "Home")';
     </script>
     <script src="~/Scripts/like.js"></script>
-    @*<script src="~/Scripts/infinite_scroll.js"></script>
+    <script src="~/Scripts/InfiniteScrollllllll.js"></script>
     <script type="text/javascript">
 
-     var yourApp = yourApp || {};
-     yourApp.Urls = yourApp.Urls || {};
-     yourApp.Urls.baseUrl = '@Url.Content("~")';
-     yourApp.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
+     var yourApp1 = yourApp1 || {};
+     yourApp1.Urls = yourApp.Urls || {};
+     yourApp1.Urls.baseUrl = '@Url.Content("~")';
+     yourApp1.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
 
         var slike = slike || {};
         slike.Urls = slike.Urls || {};
@@ -342,9 +352,9 @@
         slike.Urls.editUserUrl = '@Url.Action("Vrati", "Slike")';
 
      var email = '@Model.email';
-
-        
-    </script>*@
+     var localhost = '@Request.Url.GetLeftPart(UriPartial.Authority)';
+        var model = '@Model.posts';   
+    </script>
     <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slide.js"></script>
 </body>

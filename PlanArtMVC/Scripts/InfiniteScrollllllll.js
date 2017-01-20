@@ -14,7 +14,7 @@ function FetchDataFromServer() {
         return;
     }
     $.ajax({
-        url: yourApp.Urls.editUserUrl,
+        url: yourApp1.Urls.editUserUrl,
         data: { email: email, skipCount: skipCount, takeCount: takeCount },
         datatype: 'json',
         success: function (data) {
@@ -30,23 +30,16 @@ function FetchDataFromServer() {
                 container.append(br);
 
                 var img = $('<img />', {
-                    src: $.ajax({
-                        url: slike,
-                        data: { name: obj.profilepic },
-                        success: function(picture){
-                            return picture;
-                        }
-                    }
-                        ),
+                    src: localhost + "/Content/profilePictures/" + obj.profilepic,
                     class: 'w3-left w3-margin-right',
                     alt: 'Avatar',
                     style: 'width:60px'
                 });
                 container.append(img);
-
+                var date = eval(("new " + obj.time).replace(/\//g, ""));
                 var span = $('<span></span>', {
                     class: 'w3-right w3-opacity',
-                    text: obj.time
+                    text: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
                 });
                 container.append(span);
 
@@ -65,23 +58,24 @@ function FetchDataFromServer() {
                 });
                 container.append(p);
 
-                var div = $('<div></div>', {
+                var sl = $('<div></div>', {
                     class: 'w3-content w3-display-container'
                 });
-                container.append(div);
+                container.add(sl);
 
-                var a = $('<a></a>', {
-                    class: 'w3-btn-floating w3-display-left',
-                    onclick: 'plusDivs(-1, @(post.email + post.time))'
-                });
-                container.append(a);
+                //if (model.posts[i].images.Count > 1) {
+                    var a = $('<a></a>', {
+                        class: 'w3-btn-floating w3-display-left',
+                        onclick: 'plusDivs(-1, @(post.email + post.time))'
+                    });
+                    sl.append(a);
 
-                var a1 = $('<a></a>', {
-                    class: 'w3-btn-floating w3-display-right',
-                    onclick: 'plusDivs(-1, @(post.email + post.time))'
-                });
-                container.append(a1);
-
+                    var a1 = $('<a></a>', {
+                        class: 'w3-btn-floating w3-display-right',
+                        onclick: 'plusDivs(-1, @(post.email + post.time))'
+                    });
+                    sl.append(a1);
+                //}
                 $("#result").append(container);
             });
             skipCount += takeCount; // update for next iteration

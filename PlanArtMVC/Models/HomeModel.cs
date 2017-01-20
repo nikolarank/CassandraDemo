@@ -36,6 +36,11 @@ namespace PlanArtMVC.Models
             return Picture.ToBase64(virtualPath, picName);
         }
 
+        public string ReturnPic(string virtualPath, string picName)
+        {
+            return virtualPath + "\\Content\\profilePictures\\" + picName;
+        }
+
         public HomeModel()
         {
             posts = new List<Post>();
