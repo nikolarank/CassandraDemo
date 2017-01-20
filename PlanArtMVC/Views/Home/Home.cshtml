@@ -227,10 +227,10 @@
                                 <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].email + Model.posts[i].time)')">&#10095;</a>
                             }
                         </div>
-
                         <br>
-
-                        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+                            <p id=@Model.posts[i].email></p>
+                        <br>
+                        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up" onclick="Lajkuj(@Model.posts[i].email)"></i>  Like</button>
                         <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
                     </div>
 

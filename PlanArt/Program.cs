@@ -58,8 +58,8 @@ namespace PlanArt
             //Events.Get("calvin.harris@gmail.com");
 
             //Post p = new Post();
-            //Post p = new Post("exitf@gmail.com", "exit", null, "exit.jpg", new DateTime(2017, 5, 6), slike, "ovo je neki drugi");
-            //Posts.Add(p);
+            Post p = new Post("exitf@gmail.com", "exit", null, "exit.jpg", new DateTime(2017, 5, 6), slike, "popularni", 13);
+            Posts.Add(p);
 
             Posts.Get("exitf@gmail.com");
         }

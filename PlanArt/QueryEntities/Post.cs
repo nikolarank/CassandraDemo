@@ -15,13 +15,14 @@ namespace PlanArt.Data_Access
         public string profilepic { get; set; }
         public string text { get; set; }
         public List<string> images{ get; set; }
+        public int likes;
 
         public Post()
         {
             images = new List<string>();
         }
 
-        public Post(string email, string firstname, string lastname, string pic, DateTime time, List<string> images, string text)
+        public Post(string email, string firstname, string lastname, string pic, DateTime time, List<string> images, string text, int likes)
         {
             this.email = email;
             this.firstname = firstname;
@@ -30,6 +31,7 @@ namespace PlanArt.Data_Access
             this.time = time;
             this.images = images;
             this.text = text;
+            this.likes = likes;
         }
     }
 }

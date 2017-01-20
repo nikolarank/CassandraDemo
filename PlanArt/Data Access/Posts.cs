@@ -20,8 +20,8 @@ namespace PlanArt.Data_Access
 
             string json = JsonConvert.SerializeObject(post.images);
             json = json.Replace("\"", "'");
-            RowSet postData = session.Execute("insert into \"Post\" (email, post_id, firstname, lastname, text, profilepic, time, images) " +
-                  "  values ('" + post.email + "', " + TimeUuid.NewId().ToString() + ", '" +  post.firstname + "','" + post.lastname + "','" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
+            RowSet postData = session.Execute("insert into \"Post\" (email, post_id, firstname, lastname, likes, text, profilepic, time, images) " +
+                  "  values ('" + post.email + "', " + TimeUuid.NewId().ToString() + ", '" +  post.firstname + "','" + post.lastname + "'," + post.likes + ",'" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
         }
 
         public static List<Post> Get(string email)
@@ -39,6 +39,7 @@ namespace PlanArt.Data_Access
                 {
                     Post post = new Post();
                     post.email = postRow["email"] != null ? postRow["email"].ToString() : string.Empty;
+                    post.likes = postRow["likes"] != null ? int.Parse(postRow["likes"].ToString()) : 0;
                     post.firstname = postRow["firstname"] != null ? postRow["firstname"].ToString() : string.Empty;
                     post.lastname = postRow["lastname"] != null ? postRow["lastname"].ToString() : string.Empty;
                     post.profilepic = postRow["profilepic"] != null ? postRow["profilepic"].ToString() : string.Empty;
