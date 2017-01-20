@@ -14,7 +14,16 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="~/Scripts/jquery-ui.js"></script>
 <script src="~/Scripts/jquery-1.12.3.js"></script>
+
+
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
     html, body, h1, h2, h3, h4, h5 {
         font-family: "Open Sans", sans-serif;
@@ -140,6 +149,66 @@
 
             <!-- Middle Column -->
             <div class="w3-col m7" id="result">
+
+                <div class="row" style="padding-bottom: 2px; padding-top:5px;">
+                    <div class="col-md-12" style="text-align:center;">
+                        <a href="#" style="color:#337ab7;" data-toggle="modal" data-target="#zaboravljenaSifraModal"> Add Event? </a>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div id="zaboravljenaSifraModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="text-align:center; color:#337ab7;">You want a new event? Add it here.</h4>
+                            </div>
+                            <form method="post" action="@Url.Action("AddEvent", "Profile")">
+                                <div class="modal-body">
+                                    <div class="container-fluid">                                       
+                                        <div class="row" style="margin-bottom: 10px;margin-left:5px; margin-right:5px; text-align:center;">                                           
+                                            @*Date: @Html.TextBoxFor(model => model.newEvent.datetime.Date, new { @type = "date" })*@   
+                                            <input type="date" name="datum" />                                       
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;margin-left:5px; margin-right:5px; text-align:center;">
+                                            @*Time: @Html.TextBoxFor(model => model.newEvent.datetime.TimeOfDay, new { @type = "time" })*@
+                                            <input type="time" name="vreme" /> 
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;margin-left:5px; margin-right:5px; text-align:center;">
+                                            @Html.DropDownListFor(m => m.newEvent.FestName, Model.allFestivals, "-- Select Festival --", new { @size = "4" })
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px; margin-left: 5px; margin-right: 5px; text-align: center; "> <button class="btn btn-primary btn-block">Add Event</button></div>
+                                        <div class="row" style="text-align:center; color:#337ab7;">
+                                            <p> Clicking this button will create a new event for you on the selected festival. Once you click on the Add Event buton, event will be added to your schedule. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                 @foreach (var e in Model.events)
                 {
@@ -281,6 +350,14 @@
 
 
     </script>
+
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+
     <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slide.js"></script>
 </body>

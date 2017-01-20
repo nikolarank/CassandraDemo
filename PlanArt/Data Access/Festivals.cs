@@ -7,6 +7,7 @@ using Cassandra;
 using PlanArt.QueryEntities;
 using Newtonsoft.Json;
 using Microsoft.AspNet.SignalR.Json;
+using System.Web.Mvc;
 
 namespace PlanArt.Data_Access
 {
@@ -57,6 +58,27 @@ namespace PlanArt.Data_Access
             }
 
             return festival;
+        }
+
+        public static List<SelectListItem> GetAllFestivals()
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return null;
+
+            List<SelectListItem> listItems = new List<SelectListItem>();            
+            RowSet festivaldata = session.Execute("select * from \"Festival\"");
+            foreach (Row f in festivaldata)
+            {
+                listItems.Add(new SelectListItem
+                {
+                    Text = f["firstname"].ToString(),
+                    Value = f["email"].ToString()
+                });
+            }
+
+            return listItems;
         }
 
         public static void ChangeProfilePicture(string picture, string email)

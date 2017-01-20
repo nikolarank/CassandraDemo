@@ -1,8 +1,10 @@
 ﻿using PlanArt.QueryEntities;
+using PlanArt.Data_Access;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PlanArtMVC.Models
 {
@@ -21,6 +23,13 @@ namespace PlanArtMVC.Models
 
         public Event newEvent { get; set; }
         public List<Event> events { get; set; }
+
+
+
+        public string typo { get; set; }
+
+        public List<SelectListItem> allFestivals = Festivals.GetAllFestivals();
+
 
         public string ReturnPicInBase64(string virtualPath, string picName)
         {

@@ -16,7 +16,9 @@ namespace PlanArtMVC.Controllers
 
         public string Vrati(string name)
         {
-            return Picture.ToBase64("~/Content/profilePictures/", name);
+            string slika = Picture.ToBase64("~/Content/profilePictures/", name);
+            return slika;
+            //return Json(new { items = posts, count = posts.Count() }, JsonRequestBehavior.AllowGet)
         }
     }
 }
