@@ -27,6 +27,7 @@ namespace PlanArtMVC.Controllers
             Artist artist = Artists.GetArtist(model.mail);
             Festival festival = Festivals.GetFestival(model.mail);
             HomeModel homeModel = new HomeModel();
+            ViewBag.Postovi = new List<Post>();
             if (ModelState.IsValid && ( (artist.password == model.password) || (festival.password == model.password) ))
             {
                 if (artist.email != null)
@@ -48,7 +49,8 @@ namespace PlanArtMVC.Controllers
                     //homeModel.posts = Posts.GetToHome(homeModel.following);
                     //homeModel.posts = Posts.GetToHome(homeModel.following);
                     PostsCache.LoadToRedis(homeModel.email, artist.following);
-                    homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                    //homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                    homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
                     EventsCache.LoadToRedis(homeModel.email);
                     homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
                 }
@@ -69,7 +71,8 @@ namespace PlanArtMVC.Controllers
                         homeModel.following = festival.following;
                         //homeModel.posts = Posts.GetToHome(homeModel.following);
                         PostsCache.LoadToRedis(homeModel.email, festival.following);
-                        homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                        //homeModel.posts = PostsCache.GetFromRedis(homeModel.email, 0, 4);
+                       homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email);
                         EventsCache.LoadToRedis(homeModel.email);
                         homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email);
                 }

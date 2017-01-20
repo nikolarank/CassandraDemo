@@ -17,8 +17,18 @@
 <script src="~/Scripts/jquery-1.12.3.js"></script>
 <style>
     html, body, h1, h2, h3, h4, h5 {
-        font-family: "Open Sans", sans-serif;
-    }
+            font-family: "Open Sans", sans-serif;
+        }
+        #pretraga {
+            float: left;
+        }
+        #traziInput {
+            width: 500px;
+            vertical-align: middle;
+            padding: 5px 10px 5px 10px !important;
+            margin: 10px 0px 10px 10px;
+        }
+    
 </style>
 <body class="w3-theme-l5">
 
@@ -106,7 +116,7 @@
                 <br>
 
                 <!-- Interests -->
-                <div class="w3-card-2 w3-round w3-white w3-hide-small">
+                @*<div class="w3-card-2 w3-round w3-white w3-hide-small">
                     <div class="w3-container">
                         <p>Interests</p>
                         <p>
@@ -123,23 +133,14 @@
                             <span class="w3-tag w3-small w3-theme-l5">Photos</span>
                         </p>
                     </div>
-                </div>
+                </div>*@
                 <br>
-
-                <!-- Alert Box -->
-                <div class="w3-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-                    <span onclick="this.parentElement.style.display='none'" class="w3-hover-text-grey w3-closebtn">
-                        <i class="fa fa-remove"></i>
-                    </span>
-                    <p><strong>Hey!</strong></p>
-                    <p>People are looking at your profile. Find out who.</p>
-                </div>
 
                 <!-- End Left Column -->
             </div>
 
             <!-- Middle Column -->
-            <div class="w3-col m7" id="result">
+            <div class="w3-col m6" id="result">
 
                 <div class="w3-row-padding">
                     <div class="w3-col m12">
@@ -169,39 +170,61 @@
                                 @Html.HiddenFor(m => m.calendar)
                                 @Html.HiddenFor(m => m.lastname)
                                 @Html.HiddenFor(m => m.nickname)
+                                
+                                @*@{ 
+                                    
+                                    ViewBag.Postovi = Model.posts.ToList();
+                                }*@
+                                
+                                
 
+
+
+
+                                @for (int i = 0; i < Model.posts.Count; i++)
+                                {
+                                        @Html.HiddenFor(m => m.posts[i].email);
+                                        @Html.HiddenFor(m => m.posts[i].firstname);
+                                    for (int j = 0; j < Model.posts[i].images.Count; j++)
+                                    {
+                                        @Html.HiddenFor(m => m.posts[i].images[j]);
+                                    }
+                             
+                                        @Html.HiddenFor(m => m.posts[i].lastname);
+                                        @Html.HiddenFor(m => m.posts[i].profilepic);
+                                        @Html.HiddenFor(m => m.posts[i].text);
+                                        @Html.HiddenFor(m => m.posts[i].time);
+                                }
+                                
                                 <button class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
                             </div>
-                        }
+                                    }
                         </div>
                     </div>
                 </div>
 
-                @foreach (var post in Model.posts)
+                @*@@foreach (var post in Model.posts)*@
+                @for(int i = Model.posts.Count - 1; i > -1; i--)
                 {
                     <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
                         <br>
-                        <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", post.profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
-                        <span class="w3-right w3-opacity">@post.time</span>
-                        <h4>@post.firstname @if (post.lastname != null) {@post.lastname}</h4><br>
+                        <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
+                        <span class="w3-right w3-opacity">@Model.posts[i].time</span>
+                        <h4>@Model.posts[i].firstname @if (Model.posts[i].lastname != null) {@Model.posts[i].lastname}</h4><br>
                         <hr class="w3-clear">
-                        <p>@post.text</p>
+                        <p>@Model.posts[i].text</p>
 
-                        <div class="w3-content w3-display-container class='@(post.email + post.time)'">
-                            @foreach (var img in post.images)
+                        <div class="w3-content w3-display-container class='@(Model.posts[i].email + Model.posts[i].time)'">
+                            @foreach (var img in Model.posts[i].images)
                             {
-                                <img class='@(post.email + post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
+                                <img class='@(Model.posts[i].email + Model.posts[i].time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
                             } 
 
-                            
-                            <!-- <input type="hidden" id="skriven" value=@(post.email + post.time)>
-                            -->
 
-
-                            @if (post.images.Count > 1)
+                            @if (Model.posts[i].images.Count > 1)
                             {
-                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email + post.time)')">&#10094;</a>
-                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email + post.time)')">&#10095;</a>
+                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(Model.posts[i].email + Model.posts[i].time)')">&#10094;</a>
+                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].email + Model.posts[i].time)')">&#10095;</a>
                             }
                         </div>
 
@@ -217,7 +240,7 @@
             </div>
 
             <!-- Right Column -->
-            <div class="w3-col m2">
+            <div class="w3-col m3">
                 <div class="w3-card-2 w3-round w3-white w3-center">
                     <div class="w3-container">
                         @using (Html.BeginForm("Profile", "Profile"))
@@ -244,7 +267,7 @@
                 </div>
                 <br>
 
-                <div class="w3-card-2 w3-round w3-white w3-center">
+                @*<div class="w3-card-2 w3-round w3-white w3-center">
                     <div class="w3-container">
                         <p>Friend Request</p>
                         <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
@@ -258,17 +281,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <br>
 
-                <div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
+                @*<div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
                     <p>ADS</p>
                 </div>
                 <br>
 
                 <div class="w3-card-2 w3-round w3-white w3-padding-32 w3-center">
                     <p><i class="fa fa-bug w3-xxlarge"></i></p>
-                </div>
+                </div>*@
 
                 <!-- End Right Column -->
             </div>
@@ -307,7 +330,7 @@
         }
 
     </script>
-    <script src="~/Scripts/infinite_scroll.js"></script>
+    @*<script src="~/Scripts/infinite_scroll.js"></script>
     <script type="text/javascript">
 
      var yourApp = yourApp || {};
@@ -323,7 +346,7 @@
      var email = '@Model.email';
 
         
-    </script>
+    </script>*@
     <script src="~/Scripts/postavi.js"></script>
     <script src="~/Scripts/slide.js"></script>
 </body>

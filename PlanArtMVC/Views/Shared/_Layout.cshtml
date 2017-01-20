@@ -48,10 +48,10 @@
             <li>
                 <form action="@Url.Action("Search","Home")" method="post">
                     <div class="inp">
-                        <span>
+                        <div id="pretraga">
                             <input list="listaTagova" id="traziInput" name="tagovi" style="display:inline" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
                             <button class="btn btn-default" id="btnsrch" style="display:inline"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
+                        </div>
                         
                         <datalist id="listaTagova"></datalist>
                         
@@ -60,7 +60,7 @@
             </li>
 
 
-            <li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>
+            @*<li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>*@
         </ul>
     </div>
 
@@ -68,9 +68,6 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
         <ul class="w3-navbar w3-left-align w3-large w3-theme">
-            <li><a class="w3-padding-large" href="#">Link 1</a></li>
-            <li><a class="w3-padding-large" href="#">Link 2</a></li>
-            <li><a class="w3-padding-large" href="#">Link 3</a></li>
             <li><a class="w3-padding-large" href="#">My Profile</a></li>
         </ul>
     </div>

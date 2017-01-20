@@ -20,14 +20,13 @@ namespace PlanArt.Data_Access
 
             string json = JsonConvert.SerializeObject(post.images);
             json = json.Replace("\"", "'");
-            RowSet postData = session.Execute("insert into \"Post\" (email, firstname, lastname, text, profilepic, time, images) " +
-                  "  values ('" + post.email + "', '" + post.firstname + "','" + post.lastname + "','" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
+            RowSet postData = session.Execute("insert into \"Post\" (email, post_id, firstname, lastname, text, profilepic, time, images) " +
+                  "  values ('" + post.email + "', " + TimeUuid.NewId().ToString() + ", '" +  post.firstname + "','" + post.lastname + "','" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
         }
 
         public static List<Post> Get(string email)
         {
-            ISession session = SessionManager.GetSession();
-            Post post = new Post();
+            ISession session = SessionManager.GetSession();;
             List<Post> posts = new List<Post>();
             if (session == null)
                 return null;
@@ -36,8 +35,9 @@ namespace PlanArt.Data_Access
 
             foreach (Row postRow in postData)
             {
-                if (postData != null)
+                if (postRow != null)
                 {
+                    Post post = new Post();
                     post.email = postRow["email"] != null ? postRow["email"].ToString() : string.Empty;
                     post.firstname = postRow["firstname"] != null ? postRow["firstname"].ToString() : string.Empty;
                     post.lastname = postRow["lastname"] != null ? postRow["lastname"].ToString() : string.Empty;
@@ -45,8 +45,9 @@ namespace PlanArt.Data_Access
                     post.text = postRow["text"] != null ? postRow["text"].ToString() : string.Empty;
                     post.time = DateTime.Parse(postRow["time"].ToString());
                     post.images = postRow["images"] != null ? ((IEnumerable<string>)postRow["images"]).ToList() : null;
+                    posts.Add(post);
                 }
-                posts.Add(post);
+                
             }
 
             return posts;

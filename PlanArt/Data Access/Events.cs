@@ -25,7 +25,7 @@ namespace PlanArt.Data_Access
         public static List<Event> Get(string email)
         {
             ISession session = SessionManager.GetSession();
-            Event Event = new Event();
+            
             List<Event> Events = new List<Event>();
             if (session == null)
                 return null;
@@ -34,14 +34,17 @@ namespace PlanArt.Data_Access
 
             foreach (Row EventRow in EventData)
             {
-                if (EventData != null)
+
+                if (EventRow != null)
                 {
-                    Event.email = EventRow["email"] != null ? EventRow["email"].ToString() : string.Empty;
-                    Event.FestName = EventRow["festival"] != null ? EventRow["festival"].ToString() : string.Empty;
-                    Event.FestPic = EventRow["fest_pic"] != null ? EventRow["fest_pic"].ToString() : string.Empty;
-                    Event.datetime = DateTime.Parse(EventRow["time"].ToString());
+                    Event e = new Event();
+                    e.email = EventRow["email"] != null ? EventRow["email"].ToString() : string.Empty;
+                    e.FestName = EventRow["festival"] != null ? EventRow["festival"].ToString() : string.Empty;
+                    e.FestPic = EventRow["fest_pic"] != null ? EventRow["fest_pic"].ToString() : string.Empty;
+                    e.datetime = DateTime.Parse(EventRow["time"].ToString());
+                    Events.Add(e);
                 }
-                Events.Add(Event);
+                
             }
 
             return Events;
