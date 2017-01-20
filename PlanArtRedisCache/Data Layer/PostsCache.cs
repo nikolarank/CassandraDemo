@@ -18,17 +18,32 @@ namespace PlanArtRedisCache.Data_Layer
         //upisuje u Redis sve postove onih koje pratim
         public static void LoadToRedis(string email, List<string> following)
         {
+            if (redis.GetListCount("show_posts_" + email) > 0)
+                redis.RemoveAllFromList("show_posts_" + email);
             List<Post> posts = Posts.GetToHome(following);
-            var postovi = redis.Lists["show_posts_"+ email];
-            
-            foreach(Post post in posts)
+            var postovi = redis.Lists["show_posts_" + email];
+
+
+            foreach (Post post in posts)
             {
                 postovi.Append(JsonSerializer.SerializeToString(post, typeof(Post)));
             }
-
+            
             //redis.Add<List<Post>>("post", posts);
         }
 
+        public static List<Post> GetAllFromRedis(string email)
+        {
+            List<Post> posts = new List<Post>();
+
+            foreach (string jsonVisitorString in redis.GetAllItemsFromList("show_posts_" + email))
+            {
+                Post p = (Post)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Post));
+                posts.Add(p);
+            }
+
+            return posts;
+        }
 
         //cita iz redisa elemente liste iz datog opsega
         public static List<Post> GetFromRedis(string email, int startingFrom, int endingAt)

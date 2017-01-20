@@ -3,6 +3,16 @@
     font-family: "Open Sans", sans-serif;
 }
 
+#pretraga {
+    float: left;
+}
+#traziInput {
+    width: 500px;
+    vertical-align: middle;
+padding: 5px 10px 5px 10px !important;
+  margin: 10px 0px 10px 10px;
+}
+
 /* W3.CSS 2.85 Jan 2017 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */

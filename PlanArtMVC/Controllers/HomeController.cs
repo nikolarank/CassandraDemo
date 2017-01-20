@@ -117,8 +117,18 @@ namespace PlanArtMVC.Controllers
             }
 
             homeModel.myPost = new PlanArt.Data_Access.Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPost.text);
-
-            homeModel.posts.Add(homeModel.myPost);
+            //List<Post> neo = new List<Post>();
+            //neo.Add(homeModel.myPost);
+            //foreach (Post p in homeModel.posts)
+            //{
+            //    Post a = new Post();
+            //    a = p;
+            //    neo.Add(a);
+            //}
+            //homeModel.posts = neo.ToList();
+            Post a = new Post(homeModel.email, homeModel.firstname, homeModel.lastname, homeModel.picture, DateTime.Now, lista, homeModel.myPost.text);
+            //homeModel.posts.Insert(0, a);
+            homeModel.posts.Add(a);
             //Posts.Add(homeModel.myPost);
             PostsCache.AddPost(homeModel.myPost);
 

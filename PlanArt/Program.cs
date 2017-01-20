@@ -41,22 +41,27 @@ namespace PlanArt
             //Festival f = new Festival("sanantonio@gmail.com", artistsDictionary, calendarDictionary, "Nis", festivalsDictionary, "majmun");
             //Festivals.AddFestival(f);
             //Festivals.GetFestival("perakojot@gmail.com");
-            //List<string> slike = new List<string>();
-            //slike.Add("prva");
-            //slike.Add("druga");
-            //slike.Add("treca");
+            List<string> slike = new List<string>();
+            slike.Add("prva");
+            slike.Add("druga");
+            slike.Add("treca");
             //Post p = new Post("exitf@gmail.com", "exit", null, "exit.jpg", new DateTime(2017, 5, 6), slike, "ovo je neki post");
             //Posts.Add(p);
 
             //List<Post> lp = Posts.Get("exitf@gmail.com");
 
             Event e = new Event("calvin.harris@gmail.com", new DateTime(2017, 6, 8, 15, 30, 0, DateTimeKind.Local), "Exit", "exit.jpg");
-            Event e2 = new Event("calvin.harris@gmail.com", new DateTime(2017, 8, 8, 15, 30, 0, DateTimeKind.Local), "LoveFest", "LoveFest.jpg");
-            Events.Add(e);
-            Events.Add(e2);
+            //Event e2 = new Event("calvin.harris@gmail.com", new DateTime(2017, 8, 8, 15, 30, 0, DateTimeKind.Local), "LoveFest", "LoveFest.jpg");
+            //Events.Add(e);
+            //Events.Add(e2);
 
-            Events.Get("calvin.harris@gmail.com");
+            //Events.Get("calvin.harris@gmail.com");
 
+            //Post p = new Post();
+            //Post p = new Post("exitf@gmail.com", "exit", null, "exit.jpg", new DateTime(2017, 5, 6), slike, "ovo je neki drugi");
+            //Posts.Add(p);
+
+            Posts.Get("exitf@gmail.com");
         }
     }
 }
