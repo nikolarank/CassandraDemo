@@ -18,16 +18,6 @@
             transition: width 0.4s ease-in-out;
         }
 
-        #pretraga {
-            float: left;
-        }
-        #traziInput {
-            width: 500px;
-            vertical-align: middle;
-            padding: 5px 10px 5px 10px !important;
-            margin: 10px 0px 10px 10px;
-        }
-
         /* When the input field gets focus, change its width to 100% */
         input[type=text]:focus {
             width: 100%;
@@ -41,18 +31,18 @@
             <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
                 <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
             </li>
-            <li><a href='#' class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>PlanArt</a></li>
+            <li><a href="@Url.Action("Home", "Home")" style="color:#337ab7;" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>PlanArt</a></li>
             @*<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a></li>
-            <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a></li>
-            <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
-            <li class="w3-hide-small w3-dropdown-hover">
-                <a href="#" class="w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></a>
-                <div class="w3-dropdown-content w3-white w3-card-4">
-                    <a href="#">One new friend request</a>
-                    <a href="#">John Doe posted on your wall</a>
-                    <a href="#">Jane likes your post</a>
-                </div>
-            </li>*@
+                <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a></li>
+                <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
+                <li class="w3-hide-small w3-dropdown-hover">
+                    <a href="#" class="w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></a>
+                    <div class="w3-dropdown-content w3-white w3-card-4">
+                        <a href="#">One new friend request</a>
+                        <a href="#">John Doe posted on your wall</a>
+                        <a href="#">Jane likes your post</a>
+                    </div>
+                </li>*@
 
 
             <li>
@@ -62,16 +52,17 @@
                             <input list="listaTagova" id="traziInput" name="tagovi" style="display:inline" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
                             <button class="btn btn-default" id="btnsrch" style="display:inline"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
-                        
+
                         <datalist id="listaTagova"></datalist>
-                        
+
                     </div>
                 </form>
             </li>
 
+            <li class="nav navbar-nav navbar-right"> <a href="@Url.Action("LogOut", "LogIn")" style="color:white; margin-top:5px; margin-right:10px"> Log out <span class="glyphicon glyphicon-log-out"></span></a></li>
 
-            @*<li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li>*@
         </ul>
+
     </div>
 
 
@@ -85,16 +76,16 @@
     @*Search*@
 
     @*<form action="@Url.Action("Search","Home")" method="post">
-        <div class="inp">
-            <input list="listaTagova" id="traziInput" name="tagovi" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
-            <datalist id="listaTagova"></datalist>
-            <button class="btn btn-default" id="btnsrch"><span class="glyphicon glyphicon-search"></span></button>
-        </div>
-    </form>*@
+            <div class="inp">
+                <input list="listaTagova" id="traziInput" name="tagovi" type="text" size="18" class="kontrola form-control" onkeyup="ajaxPozivTagoviNaslovna()" placeholder="Pretraži portal" />
+                <datalist id="listaTagova"></datalist>
+                <button class="btn btn-default" id="btnsrch"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        </form>*@
 
     <div>
         @RenderBody()
-        
+
     </div>
     <!-- Footer -->
     @*<footer class="w3-container w3-theme-d3 w3-padding-16">*@
@@ -105,8 +96,8 @@
 
 
     @*<footer class="w3-container w3-theme-d5">
-        <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>*@
+            <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>*@
 
 
     @Scripts.Render("~/bundles/jquery")
@@ -120,25 +111,22 @@
 
 <script type="text/javascript">
     {
-        function ajaxPozivTagoviNaslovna()
-        {
-                var text = $('#traziInput').val(); //prvo slovo prvog elementa liste 
-                var model = { letters: text }
+        function ajaxPozivTagoviNaslovna() {
+            var text = $('#traziInput').val(); //prvo slovo prvog elementa liste
+            var model = { letters: text }
 
-                $.post("/Home/ReturnSuggestion", model,
-                function (data)
-                {
-                        $('#listaTagova').empty();
-                        $.each(data, function (index)
-                        {
-                            var opcija = document.createElement("option");
-                            opcija.value = data[index];
-                            
-                            var roditelj = document.getElementById("listaTagova");
-                            
-                            roditelj.appendChild(opcija);
-                        });
+            $.post("/Home/ReturnSuggestion", model,
+            function (data) {
+                $('#listaTagova').empty();
+                $.each(data, function (index) {
+                    var opcija = document.createElement("option");
+                    opcija.value = data[index];
+
+                    var roditelj = document.getElementById("listaTagova");
+
+                    roditelj.appendChild(opcija);
                 });
+            });
 
         }
 
