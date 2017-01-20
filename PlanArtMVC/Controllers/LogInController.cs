@@ -85,5 +85,17 @@ namespace PlanArtMVC.Controllers
                 return View("LogIn", model);
             }
         }
+
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            if (Session["status"] != null)
+            {
+                Session["status"] = null;
+                Session["user"] = null;
+            }
+
+            return RedirectToAction("LogIn", "LogIn");
+        }
 	}
 }
