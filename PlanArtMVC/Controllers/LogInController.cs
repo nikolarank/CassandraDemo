@@ -27,7 +27,6 @@ namespace PlanArtMVC.Controllers
             Artist artist = Artists.GetArtist(model.mail);
             Festival festival = Festivals.GetFestival(model.mail);
             HomeModel homeModel = new HomeModel();
-            ViewBag.Postovi = new List<Post>();
             if (ModelState.IsValid && ( (artist.password == model.password) || (festival.password == model.password) ))
             {
                 if (artist.email != null)

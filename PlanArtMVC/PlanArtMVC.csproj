@@ -185,9 +185,9 @@
     <Content Include="Content\CSS\home.css" />
     <Content Include="Content\CSS\LoginCSS.css" />
     <Content Include="Content\CSS\RegistrationCSS.css" />
-    <Content Include="Content\pictures\Back1.jpg" />
-    <Content Include="Content\pictures\Back2.jpg" />
-    <Content Include="Content\pictures\Back3.jpg" />
+    <Content Include="Content\pictures\festival1.jpg" />
+    <Content Include="Content\pictures\festival2.jpg" />
+    <Content Include="Content\pictures\festival3.jpg" />
     <Content Include="Content\pictures\registration.jpg" />
     <Content Include="Content\profilePictures\unknown-person.jpg" />
     <Content Include="favicon.ico" />

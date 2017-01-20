@@ -23,6 +23,37 @@ namespace PlanArtMVC.Controllers
             return View(homeModel);
         }
 
+        public ActionResult GoToHome()
+        {
+            HomeModel homeModel = new HomeModel();
+            if (Session["status"] == "artist")
+            {
+                homeModel.city = ((Artist)Session["user"]).city; //
+                homeModel.email = ((Artist)Session["user"]).email; //
+                homeModel.firstname = ((Artist)Session["user"]).firstname; //
+                homeModel.following = ((Artist)Session["user"]).following; //
+                homeModel.lastname = ((Artist)Session["user"]).lastname;
+                homeModel.password = ((Artist)Session["user"]).password; //
+                homeModel.picture = ((Artist)Session["user"]).picture; //
+                homeModel.nickname = ((Artist)Session["user"]).nickname;
+                homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email); //
+                homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email); //
+            }
+            else
+            {
+                homeModel.city = ((Festival)Session["user"]).city;
+                homeModel.email = ((Festival)Session["user"]).email;
+                homeModel.firstname = ((Festival)Session["user"]).firstname;
+                homeModel.following = ((Festival)Session["user"]).following;
+                homeModel.password = ((Festival)Session["user"]).password;
+                homeModel.picture = ((Festival)Session["user"]).picture; 
+                homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email); 
+                homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email); 
+            }
+
+            return View("~/Views/Home/Home.cshtml", homeModel);
+        }
+
         [HttpPost]
         public ActionResult ChangeProfilePicture(HttpPostedFileBase file, HomeModel model)
         {

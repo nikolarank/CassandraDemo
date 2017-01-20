@@ -38,12 +38,14 @@ namespace PlanArtMVC.Controllers
                     Artist artist = new Artist(email, password, city, firstname, lastname, nickname, "unknown-person.jpg");
                     Artists.Add(artist);
                     SearchByNames.Add(artist);
+                    Artists.Follow(email, email);
                 }
                 else
                 {
                     Festival festival = new Festival(email, password, city, firstname, "unknown-person.jpg");
                     Festivals.Add(festival);
                     SearchByNames.Add(festival);
+                    Festivals.Follow(email, email);
                 }     
          
                 return View("~/Views/LogIn/LogIn.cshtml");
