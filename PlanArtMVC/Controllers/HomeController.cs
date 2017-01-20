@@ -201,9 +201,9 @@ namespace PlanArtMVC.Controllers
             return Json(new { items = posts, count = posts.Count() }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Like(string post_id)
+        public ActionResult Like(string post_id, string email)
         {
-            Posts.Like(post_id);
+            Posts.Like(post_id, email);
             return Json(new { uspeh = 1 }, JsonRequestBehavior.AllowGet);
         }
     }

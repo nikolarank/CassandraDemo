@@ -38,7 +38,7 @@
         <!-- The Grid -->
         <div class="w3-row">
             <!-- Left Column -->
-            <div class="w3-col m3">
+            <div class="w3-col m4">
                 <!-- Profile -->
                 <div class="w3-card-2 w3-round w3-white">
                     <div class="w3-container">
@@ -114,6 +114,7 @@
                 </div>
                 <br>
 
+
                 <!-- Interests -->
                 @*<div class="w3-card-2 w3-round w3-white w3-hide-small">
                     <div class="w3-container">
@@ -148,7 +149,7 @@
             </div>
 
             <!-- Middle Column -->
-            <div class="w3-col m7" id="result">
+            <div class="w3-col m8" id="result">
 
                 <div class="row" style="padding-bottom: 2px; padding-top:5px;">
                     <div class="col-md-12" style="text-align:center;">
@@ -212,54 +213,55 @@
 
                 @foreach (var e in Model.events)
                 {
-                    <p>Upcoming Event:</p>
-                    <img src= @Model.ReturnPicInBase64("~/Content/profilePictures/", e.FestPic) alt="FestivalPicture" style="width:100%;">
-                    <br />
-                    <p><strong>@@ @e.FestName</strong></p>
-                    <p>@e.datetime.Day.@e.datetime.Month.@e.datetime.Year</p>
-                    <p>@e.datetime.TimeOfDay</p>
-                    
-                    
-                    
-                    
-                    
-                    @*<div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
-                        <br>
-                        <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", post.profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
-                        <span class="w3-right w3-opacity">@post.time</span>
-                        <h4>@post.firstname @if (post.lastname != null)
-                        {@post.lastname}</h4><br>
-                        <hr class="w3-clear">
-                        <p>@post.text</p>
-
-                        <div class="w3-content w3-display-container class='@(post.email + post.time)'">
-                            @foreach (var img in post.images)
-                            {
-                                <img class='@(post.email + post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
-                            }
+                    <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
+                        <p>Upcoming Event:</p>
+                        <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", e.FestPic) alt="FestivalPicture" class="w3-left w3-margin-right" style="width:100%;">
+                        <br />
+                        <h1><strong>@@ @e.FestName</strong></h1>
+                        <h2>@e.datetime.Day.@e.datetime.Month.@e.datetime.Year</h2>
+                        <h2>@e.datetime.TimeOfDay</h2>
+                    </div>
 
 
-                            <!-- <input type="hidden" id="skriven" value=@(post.email + post.time)>
-                            -->
 
 
-                            @if (post.images.Count > 1)
-                            {
-                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email + post.time)')">&#10094;</a>
-                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email + post.time)')">&#10095;</a>
-                            }
-                        </div>
+                        @*<div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
+                                <br>
+                                <img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", post.profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
+                                <span class="w3-right w3-opacity">@post.time</span>
+                                <h4>@post.firstname @if (post.lastname != null)
+                                {@post.lastname}</h4><br>
+                                <hr class="w3-clear">
+                                <p>@post.text</p>
 
-                        <br>
+                                <div class="w3-content w3-display-container class='@(post.email + post.time)'">
+                                    @foreach (var img in post.images)
+                                    {
+                                        <img class='@(post.email + post.time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
+                                    }
 
-                        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
-                        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
-                    </div>*@
 
-                }
+                                    <!-- <input type="hidden" id="skriven" value=@(post.email + post.time)>
+                                    -->
 
-                <!-- End Middle Column -->
-            </div>
+
+                                    @if (post.images.Count > 1)
+                                    {
+                                        <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(post.email + post.time)')">&#10094;</a>
+                                        <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(post.email + post.time)')">&#10095;</a>
+                                    }
+                                </div>
+
+                                <br>
+
+                                <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+                                <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
+                            </div>*@
+
+                        }
+
+                        <!-- End Middle Column -->
+                    </div>
 
             <!-- Right Column -->
             <div class="w3-col m2">

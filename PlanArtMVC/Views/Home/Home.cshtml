@@ -221,7 +221,7 @@
                         <br>
                             <p id=@Model.posts[i].post_id>@Model.posts[i].likes</p>
                         <br>
-                        <button type="button" onclick="like('@Model.posts[i].post_id')" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+                        <button type="button" onclick="like('@Model.posts[i].post_id', '@Model.posts[i].email')" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                         @*<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>*@
                     </div>
 

@@ -18,6 +18,9 @@ namespace PlanArtRedisCache.Data_Layer
 
         public static void LoadToRedis(string email)
         {
+            if (redis.GetListCount("show_events_" + email) > 0)
+                redis.RemoveAllFromList("show_events_" + email);
+
             List<Event> events = Events.Get(email);
             var Eventi = redis.Lists["show_events_" + email];
 
