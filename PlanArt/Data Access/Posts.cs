@@ -24,6 +24,21 @@ namespace PlanArt.Data_Access
                   "  values ('" + post.email + "', " + TimeUuid.NewId().ToString() + ", '" +  post.firstname + "','" + post.lastname + "'," + post.likes + ",'" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
         }
 
+        public static void Like(string id)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+            System.Guid guid = System.Guid.Parse(id);
+            TimeUuid cuid = guid; 
+            Row likes = session.Execute("select * from \"Post\" where post_id = " + cuid + " allow filtering").FirstOrDefault();
+            int count = int.Parse(likes["likes"].ToString());
+            count++;
+            RowSet artistData = session.Execute("update \"Post\" set likes = " + count + " where \"post_id\"=" + cuid + ";");
+
+        }
+
         public static List<Post> Get(string email)
         {
             ISession session = SessionManager.GetSession();;
@@ -46,6 +61,7 @@ namespace PlanArt.Data_Access
                     post.text = postRow["text"] != null ? postRow["text"].ToString() : string.Empty;
                     post.time = DateTime.Parse(postRow["time"].ToString());
                     post.images = postRow["images"] != null ? ((IEnumerable<string>)postRow["images"]).ToList() : null;
+                    post.post_id = postRow["post_id"].ToString();
                     posts.Add(post);
                 }
                 

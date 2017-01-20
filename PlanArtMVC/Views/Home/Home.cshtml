@@ -19,15 +19,6 @@
     html, body, h1, h2, h3, h4, h5 {
             font-family: "Open Sans", sans-serif;
         }
-        #pretraga {
-            float: left;
-        }
-        #traziInput {
-            width: 500px;
-            vertical-align: middle;
-            padding: 5px 10px 5px 10px !important;
-            margin: 10px 0px 10px 10px;
-        }
     
 </style>
 <body class="w3-theme-l5">
@@ -228,10 +219,10 @@
                             }
                         </div>
                         <br>
-                            <p id=@Model.posts[i].email></p>
+                            <p id=@Model.posts[i].post_id>@Model.posts[i].likes</p>
                         <br>
-                        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up" onclick="Lajkuj(@Model.posts[i].email)"></i>  Like</button>
-                        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
+                        <button type="button" onclick="like('@Model.posts[i].post_id')" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
+                        @*<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>*@
                     </div>
 
                 }
@@ -330,6 +321,13 @@
         }
 
     </script>
+    <script>
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.editUserUrl = '@Url.Action("Like", "Home")';
+    </script>
+    <script src="~/Scripts/like.js"></script>
     @*<script src="~/Scripts/infinite_scroll.js"></script>
     <script type="text/javascript">
 

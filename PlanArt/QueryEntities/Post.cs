@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cassandra;
 
 namespace PlanArt.Data_Access
 {
@@ -16,6 +17,7 @@ namespace PlanArt.Data_Access
         public string text { get; set; }
         public List<string> images{ get; set; }
         public int likes;
+        public string post_id { get; set; }
 
         public Post()
         {
