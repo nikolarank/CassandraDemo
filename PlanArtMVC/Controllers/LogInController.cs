@@ -91,6 +91,7 @@ namespace PlanArtMVC.Controllers
             {
                 PostsCache.SaveNewPostsToCassandra();
                 EventsCache.SaveNewEventsToCassandra();
+                
                 Session["status"] = null;
                 Session["user"] = null;
             }

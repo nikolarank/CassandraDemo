@@ -75,6 +75,8 @@ namespace PlanArtRedisCache.Data_Layer
                 Event e = (Event)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Event));
                 Events.Add(e);
             }
+
+            redis.RemoveAllFromList("new_events");
         }
     }
 }
