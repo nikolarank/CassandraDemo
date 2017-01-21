@@ -40,7 +40,6 @@ namespace PlanArtMVC.Controllers
                     homeModel.password = artist.password;
                     homeModel.city = artist.city;
                     homeModel.firstname = artist.firstname;
-                    homeModel.calendar = artist.calendar;
                     //homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", artist.picture);
                     homeModel.picture = artist.picture;
                     homeModel.lastname = artist.lastname;
@@ -65,7 +64,6 @@ namespace PlanArtMVC.Controllers
                         homeModel.password = festival.password;
                         homeModel.city = festival.city;
                         homeModel.firstname = festival.firstname;
-                        homeModel.calendar = festival.calendar;
                         //homeModel.picture = Picture.ToBase64("~/Content/profilePictures/", festival.picture);
                         homeModel.picture = festival.picture;
                         homeModel.following = festival.following;
