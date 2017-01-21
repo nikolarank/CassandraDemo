@@ -91,6 +91,18 @@ namespace PlanArtMVC.Controllers
             {
                 PostsCache.SaveNewPostsToCassandra();
                 EventsCache.SaveNewEventsToCassandra();
+
+                if (Session["status"] == "artist")
+                {
+                    EventsCache.RemoveAll(((Artist)Session["user"]).email);
+                    PostsCache.RemoveAll(((Artist)Session["user"]).email);
+                }
+                else
+                {
+                    EventsCache.RemoveAll(((Festival)Session["user"]).email);
+                    PostsCache.RemoveAll(((Artist)Session["user"]).email);
+                }
+                
                 
                 Session["status"] = null;
                 Session["user"] = null;

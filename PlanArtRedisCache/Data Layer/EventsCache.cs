@@ -78,5 +78,10 @@ namespace PlanArtRedisCache.Data_Layer
 
             redis.RemoveAllFromList("new_events");
         }
+
+        public static void RemoveAll(string email)
+        {
+            redis.RemoveAllFromList("show_events_" + email);
+        }
     }
 }

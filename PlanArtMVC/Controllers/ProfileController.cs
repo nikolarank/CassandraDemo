@@ -24,6 +24,7 @@ namespace PlanArtMVC.Controllers
             profileModel.nickname = homeModel.nickname;
             profileModel.password = homeModel.password;
             profileModel.picture = homeModel.picture;
+            
 
             return View(profileModel);
         }
@@ -33,6 +34,11 @@ namespace PlanArtMVC.Controllers
             DateTime tmp = datum.Date.Add(vreme.TimeOfDay);
             Festival f = Festivals.GetFestival(profileModel.newEvent.FestName); //festname je zapravo mail
             Event e = new Event(((Artist)Session["user"]).email, tmp, f.firstname, f.picture);
+            profileModel.newEvent.email = e.email;
+            profileModel.newEvent.datetime = e.datetime;
+            profileModel.newEvent.FestName = e.FestName;
+            profileModel.newEvent.FestPic = e.FestPic;
+            profileModel.events.Add(e);
             Events.Add(e);
             return View("~/Views/Profile/Profile.cshtml", profileModel);
         }

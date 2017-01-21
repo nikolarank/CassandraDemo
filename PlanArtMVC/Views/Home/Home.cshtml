@@ -159,6 +159,7 @@
                 {
                     <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
                         @*<img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">*@
+                        <br>
                         <img src=@Model.ReturnPic(@Request.Url.GetLeftPart(UriPartial.Authority),Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
                         <span class="w3-right w3-opacity">@Model.posts[i].time</span>
 
@@ -209,6 +210,7 @@
                             }
                         </form>
 
+                        <br>
                         <hr class="w3-clear">
                         <p>@Model.posts[i].text</p>
 
@@ -368,6 +370,6 @@
         var model = '@Model.posts';   
     </script>
     <script src="~/Scripts/postavi.js"></script>
-    <script src="~/Scripts/slid.js"></script>
+    <script src="~/Scripts/slide.js"></script>
 </body>
 </html>

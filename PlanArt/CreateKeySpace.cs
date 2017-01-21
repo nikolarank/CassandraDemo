@@ -151,8 +151,14 @@ namespace PlanArt
             session.Execute(query);
 
             //Event data
-            //query = "insert into \"SearchByName\" JSON '{ \"name\" : \"David\", \"emails\" : [\"david.guetta@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Bon\", \"emails\" : [\"bon.jovi@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Wiz\", \"emails\" : [\"wiz.khalifa@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Nina\", \"emails\" : [\"nina.kraviz@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Ellie\", \"emails\" : [\"ellie.goulding@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Coachella\", \"emails\" : [\"coachella@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Exit\", \"emails\" : [\"exit@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Black\", \"emails\" : [\"black.coffie@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Jeff\", \"emails\" : [\"jeff.mills@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Ultra Music Festival\", \"emails\" : [\"ultramusic@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Nick\", \"emails\" : [\"nick.cave@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Rihanna\", \"emails\" : [\"rihanna@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Snoop \", \"emails\" : [\"snoop.dog@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Glastonbury\", \"emails\" : [\"glastonbury@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Nicky\", \"emails\" : [\"nicky.romero@gmail.com\"] }' if not exists; insert into \"SearchByName\" JSON ' { \"name\" : \"Nisville\", \"emails\" : [\"nisville@gmail.com\"] }' if not exists;";
-            //session.Execute(query);
+            query = "insert into \"Event\" JSON '{ \"email\" : \"david.guetta@gmail.com\", \"time\" : \"2017-01-10T19:30:00Z\", \"fest_pic\" : \"Coachella.JPG\", \"festival\" : \"Coachella\" }' if not exists;";
+            session.Execute(query);
+            query = "insert into \"Event\" JSON ' { \"email\" : \"david.guetta@gmail.com\", \"time\" : \"2017-01-14T19:20:00Z\", \"fest_pic\" : \"glastonbury.jpg\", \"festival\" : \"Glastonbury\" }' if not exists;";
+            session.Execute(query);
+            query = "insert into \"Event\" JSON ' { \"email\" : \"david.guetta@gmail.com\", \"time\" : \"2017-01-31T09:10:00Z\", \"fest_pic\" : \"ultra.jpg\", \"festival\" : \"Ultra Music Festival\" }' if not exists;";
+            session.Execute(query);
+            query = "insert into \"Event\" JSON ' { \"email\" : \"david.guetta@gmail.com\", \"time\" : \"2017-08-18T12:14:00Z\", \"fest_pic\" : \"exit.jpg\", \"festival\" : \"Exit\" }' if not exists;";
+            session.Execute(query);
 
             //Post data
             query = "insert into \"Post\" JSON '{ \"email\" : \"jeff.mills@gmail.com\", \"post_id\" : \"89f387a5-dfa5-11e6-be41-a375660ad5aa\", \"firstname\" : \"Jeff\", \"images\" : [\"dj_jeff_mills.jpg\"], \"lastname\" : \"Mills\", \"likes\" : 0, \"profilepic\" : \"jeffmills.jpg\", \"text\" : \"@ work\", \"time\" : \"2017-01-21T06:47:55.841Z\" }' if not exists;";
@@ -185,7 +191,7 @@ namespace PlanArt
             session.Execute(query);
             query = "insert into \"Post\" JSON ' { \"email\" : \"nina.kraviz@gmail.com\", \"post_id\" : \"89f24f5c-dfa5-11e6-8a00-1baf0e3e6da9\", \"firstname\" : \"Nina\", \"images\" : null, \"lastname\" : \"Kraviz\", \"likes\" : 0, \"profilepic\" : \"nina-kraviz.jpg\", \"text\" : \"good morning people\", \"time\" : \"2017-01-21T06:47:55.833Z\" }' if not exists;";
             session.Execute(query);
-            query = "insert into \"Post\" JSON ' { \"email\" : \"nina.kraviz@gmail.com\", \"post_id\" : \"89f2eb86-dfa5-11e6-8416-fa571ccf9644\", \"firstname\" : \"Nina\", \"images\" : [\"nina-kraviz (1.jpg\"], \"lastname\" : \"Kraviz\", \"likes\" : 0, \"profilepic\" : \"nina-kraviz.jpg\", \"text\" : \"mixing\", \"time\" : \"2017-01-21T06:47:55.837Z\" }' if not exists;";
+            query = "insert into \"Post\" JSON ' { \"email\" : \"nina.kraviz@gmail.com\", \"post_id\" : \"89f2eb86-dfa5-11e6-8416-fa571ccf9644\", \"firstname\" : \"Nina\", \"images\" : [\"nina-kraviz (1).jpg\"], \"lastname\" : \"Kraviz\", \"likes\" : 0, \"profilepic\" : \"nina-kraviz.jpg\", \"text\" : \"mixing\", \"time\" : \"2017-01-21T06:47:55.837Z\" }' if not exists;";
             session.Execute(query);
             query = "insert into \"Post\" JSON ' { \"email\" : \"david.guetta@gmail.com\", \"post_id\" : \"0f960ee7-dfa4-11e6-8aac-5636ef7cd365\", \"firstname\" : \"David\", \"images\" : [\"david_guetta_2-exit2016.jpg\", \"dexit.jpeg\"], \"lastname\" : \"Guetta\", \"likes\" : 0, \"profilepic\" : \"David-Guetta.jpg\", \"text\" : \"Lets go exit\", \"time\" : \"2017-01-21T06:37:21.05Z\" }' if not exists;";
             session.Execute(query);
