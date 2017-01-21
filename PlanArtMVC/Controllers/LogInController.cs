@@ -100,7 +100,7 @@ namespace PlanArtMVC.Controllers
                 else
                 {
                     EventsCache.RemoveAll(((Festival)Session["user"]).email);
-                    PostsCache.RemoveAll(((Artist)Session["user"]).email);
+                    PostsCache.RemoveAll(((Festival)Session["user"]).email);
                 }
                 
                 
