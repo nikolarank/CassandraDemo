@@ -38,6 +38,7 @@ namespace PlanArtMVC.Controllers
                     Artist artist = new Artist(email, password, city, firstname, lastname, nickname, "unknown-person.jpg");
                     Artists.Add(artist);
                     SearchByNames.Add(artist);
+                    ArtistFestivalSearchs.Add(artist);
                     Artists.Follow(email, email);
                 }
                 else
@@ -45,6 +46,7 @@ namespace PlanArtMVC.Controllers
                     Festival festival = new Festival(email, password, city, firstname, "unknown-person.jpg");
                     Festivals.Add(festival);
                     SearchByNames.Add(festival);
+                    ArtistFestivalSearchs.Add(festival);
                     Festivals.Follow(email, email);
                 }     
          

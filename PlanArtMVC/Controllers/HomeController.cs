@@ -36,8 +36,8 @@ namespace PlanArtMVC.Controllers
                 homeModel.password = ((Artist)Session["user"]).password; //
                 homeModel.picture = ((Artist)Session["user"]).picture; //
                 homeModel.nickname = ((Artist)Session["user"]).nickname;
-                homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email); //
-                homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email); //
+                homeModel.posts = Posts.GetToHome(homeModel.following);
+                homeModel.upcoming = Events.Get(homeModel.email).FirstOrDefault();
             }
             else
             {
@@ -46,9 +46,9 @@ namespace PlanArtMVC.Controllers
                 homeModel.firstname = ((Festival)Session["user"]).firstname;
                 homeModel.following = ((Festival)Session["user"]).following;
                 homeModel.password = ((Festival)Session["user"]).password;
-                homeModel.picture = ((Festival)Session["user"]).picture; 
-                homeModel.posts = PostsCache.GetAllFromRedis(homeModel.email); 
-                homeModel.upcoming = EventsCache.GetUpcomingFromRedis(homeModel.email); 
+                homeModel.picture = ((Festival)Session["user"]).picture;
+                homeModel.posts = Posts.GetToHome(homeModel.following);
+                homeModel.upcoming = Events.Get(homeModel.email).FirstOrDefault();
             }
 
             return View("~/Views/Home/Home.cshtml", homeModel);

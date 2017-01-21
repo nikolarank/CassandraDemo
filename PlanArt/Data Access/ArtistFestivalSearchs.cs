@@ -30,5 +30,27 @@ namespace PlanArt.Data_Access
 
             return entity;
         }
+
+        public static void Add(Artist artist)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet searchData = session.Execute("insert into \"ArtistFestivalSearch\" (\"email\", firstname, lastname, picture) " +
+                " values ('" + artist.email + "', '" + artist.firstname + "', '" + artist.lastname + "', '" + artist.picture + "');");
+        }
+
+        public static void Add(Festival festival)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet searchData = session.Execute("insert into \"ArtistFestivalSearch\" (\"email\", lastname, picture) " +
+                " values ('" + festival.email + "', '" + festival.firstname + "', '" + festival.picture + "');");
+        }
     }
 }

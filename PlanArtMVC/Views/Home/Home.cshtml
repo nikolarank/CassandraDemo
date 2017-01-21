@@ -160,10 +160,15 @@
                                 {
                                         @Html.HiddenFor(m => m.posts[i].email);
                                         @Html.HiddenFor(m => m.posts[i].firstname);
-                                        for (int j = 0; j < Model.posts[i].images.Count; j++)
+                                    
+                                        if (Model.posts[i].images != null)
                                         {
-                                            @Html.HiddenFor(m => m.posts[i].images[j]);
+                                            for (int j = 0; j < Model.posts[i].images.Count; j++)
+                                            {
+                                                @Html.HiddenFor(m => m.posts[i].images[j]);
+                                            }
                                         }
+                                        
                              
                                         @Html.HiddenFor(m => m.posts[i].lastname);
                                         @Html.HiddenFor(m => m.posts[i].profilepic);
@@ -208,11 +213,15 @@
                                 @Html.HiddenFor(m => m.posts[p].email)
                                 @Html.HiddenFor(m => m.posts[p].firstname)
                                 
-                                for (int q = 0; q < Model.posts[p].images.Count; q++)
+                                if (Model.posts[p].images != null)
                                 {
-                                    @Html.HiddenFor(m => m.posts[p].images[q]);
-                                
+                                    for (int q = 0; q < Model.posts[p].images.Count; q++)
+                                    {
+                                        @Html.HiddenFor(m => m.posts[p].images[q]);
+
+                                    }
                                 }
+                                
                                 
                                 @Html.HiddenFor(m => m.posts[p].lastname);
                                 @Html.HiddenFor(m => m.posts[p].profilepic);
@@ -235,17 +244,23 @@
                         <p>@Model.posts[i].text</p>
 
                         <div class="w3-content w3-display-container class='@(Model.posts[i].post_id)'">
-                            @foreach (var img in Model.posts[i].images)
+                            @if (Model.posts[i].images != null)
                             {
-                                <img class='@(Model.posts[i].post_id)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
-                            } 
-
-
-                            @if (Model.posts[i].images.Count > 1)
-                            {
-                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(Model.posts[i].post_id)')">&#10094;</a>
-                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].post_id)')">&#10095;</a>
+                                foreach (var img in Model.posts[i].images)
+                                {
+                                    <img class='@(Model.posts[i].post_id)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
+                                } 
+                                
+                                if (Model.posts[i].images.Count > 1)
+                                {
+                                    <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(Model.posts[i].post_id)')">&#10094;</a>
+                                    <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].post_id)')">&#10095;</a>
+                                }
                             }
+                            
+
+
+                            
                         </div>
                         <br>
                         <p id='@Model.posts[i].post_id'>@Model.posts[i].likes</p>

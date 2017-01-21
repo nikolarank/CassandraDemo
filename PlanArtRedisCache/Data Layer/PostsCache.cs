@@ -87,6 +87,9 @@ namespace PlanArtRedisCache.Data_Layer
                 Post p = (Post)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Post));
                 Posts.Add(p);
             }
-        } 
+
+            redis.RemoveAllFromList("new_posts");
+        }
+
     }
 }
