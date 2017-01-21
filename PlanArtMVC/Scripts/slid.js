@@ -6,7 +6,7 @@ var pom = document.getElementsByClassName("cont");
 var i;
 for (i = 0; i < pom.length; i++) {
     var childs = pom[i].children;
-    var slike = childs[7].getElementsByTagName("img");
+    var slike = childs[6].getElementsByTagName("img");
     var j;
     for (j = 1; j < slike.length; j++) {
         slike[j].style.display = "none";

@@ -5,22 +5,22 @@
   "picture" : "glastonbury.jpg"
 }
 {
-  "email" : "justin.biber@gmail.com",
-  "firstname" : "Justin",
-  "lastname" : "Biber",
-  "picture" : "JustinBieber.jpg"
+  "email" : "jeff.mills@gmail.com",
+  "firstname" : "Jeff",
+  "lastname" : "Mills",
+  "picture" : "jeffmills.jpg"
 }
 {
-  "email" : "calvin.harris@gmail.com",
-  "firstname" : "Calvin",
-  "lastname" : "Harris",
-  "picture" : "CalvinHarris.jpg"
+  "email" : "ellie.goulding@gmail.com",
+  "firstname" : "Ellie",
+  "lastname" : "Goulding",
+  "picture" : "llie-goulding.jpg"
 }
 {
   "email" : "coachella@gmail.com",
   "firstname" : "Coachella",
   "lastname" : null,
-  "picture" : "coachella.jpg"
+  "picture" : "Coachella.JPG"
 }
 {
   "email" : "exit@gmail.com",
@@ -29,44 +29,68 @@
   "picture" : "exit.jpg"
 }
 {
-  "email" : "acalukas@gmail.com",
-  "firstname" : "Aca",
-  "lastname" : "Lukas",
-  "picture" : "AcaLukas.jpg"
+  "email" : "wiz.khalifa@gmail.com",
+  "firstname" : "Wiz",
+  "lastname" : "Khalifa",
+  "picture" : "wiz.jpg"
 }
 {
-  "email" : "love.fest@gmail.com",
-  "firstname" : "LoveFest",
+  "email" : "nisville@gmail.com",
+  "firstname" : "Nisville",
   "lastname" : null,
-  "picture" : "LoveFest.jpg"
+  "picture" : "nisville.jpg"
+}
+{
+  "email" : "nicky.romero@gmail.com",
+  "firstname" : "Nicky",
+  "lastname" : "Romero",
+  "picture" : "nicky-romero.jpg"
+}
+{
+  "email" : "nina.kraviz@gmail.com",
+  "firstname" : "Nina",
+  "lastname" : "Kraviz",
+  "picture" : "nina-kraviz.jpg"
 }
 {
   "email" : "david.guetta@gmail.com",
   "firstname" : "David",
   "lastname" : "Guetta",
-  "picture" : "DavidGuetta.jpg"
+  "picture" : "David-Guetta.jpg"
 }
 {
   "email" : "rihanna@gmail.com",
   "firstname" : "Rihanna",
   "lastname" : "Fenti",
-  "picture" : "Rihanna.jpg"
+  "picture" : "rihanna.jpg"
 }
 {
-  "email" : "eric.clapton@gmail.com",
-  "firstname" : "Eric",
-  "lastname" : "Clapton",
-  "picture" : "EricClapton.jpg"
+  "email" : "snoop.dog@gmail.com",
+  "firstname" : "Snoop",
+  "lastname" : "Dog",
+  "picture" : "snoop-dogg.jpg"
 }
 {
-  "email" : "david.bowie@gmail.com",
-  "firstname" : "David",
-  "lastname" : "Bowie",
-  "picture" : "unknown-person.jpg"
-}
-{
-  "email" : "tomorrowland@gmail.com",
-  "firstname" : "Tomorrowland",
+  "email" : "ultramusic@gmail.com",
+  "firstname" : "Ultra Music Festival",
   "lastname" : null,
-  "picture" : "Tomorrowland.jpg"
+  "picture" : "ultra.jpg"
+}
+{
+  "email" : "bon.jovi@gmail.com",
+  "firstname" : "Bon",
+  "lastname" : "Jovi",
+  "picture" : "Jon-Bon.jpg"
+}
+{
+  "email" : "nick.cave@gmail.com",
+  "firstname" : "Nick",
+  "lastname" : "Cave",
+  "picture" : "Nick-Cave.jpg"
+}
+{
+  "email" : "black.coffie@gmail.com",
+  "firstname" : "Black",
+  "lastname" : "Coffee",
+  "picture" : "blackcoffee.jpg"
 }

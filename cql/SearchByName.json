@@ -1,14 +1,22 @@
 ﻿{
   "name" : "David",
-  "emails" : ["david.guetta@gmail.com", "david.bowie@gmail.com"]
-}
-{
-  "name" : "Guetta",
   "emails" : ["david.guetta@gmail.com"]
 }
 {
-  "name" : "Justin",
-  "emails" : ["justin.biber@gmail.com"]
+  "name" : "Bon",
+  "emails" : ["bon.jovi@gmail.com"]
+}
+{
+  "name" : "Wiz",
+  "emails" : ["wiz.khalifa@gmail.com"]
+}
+{
+  "name" : "Nina",
+  "emails" : ["nina.kraviz@gmail.com"]
+}
+{
+  "name" : "Ellie",
+  "emails" : ["ellie.goulding@gmail.com"]
 }
 {
   "name" : "Coachella",
@@ -19,46 +27,38 @@
   "emails" : ["exit@gmail.com"]
 }
 {
-  "name" : "Tomorrowland",
-  "emails" : ["tomorrowland@gmail.com"]
+  "name" : "Black",
+  "emails" : ["black.coffie@gmail.com"]
 }
 {
-  "name" : "Eric",
-  "emails" : ["eric.clapton@gmail.com"]
+  "name" : "Jeff",
+  "emails" : ["jeff.mills@gmail.com"]
 }
 {
-  "name" : "LoveFest",
-  "emails" : ["love.fest@gmail.com"]
+  "name" : "Ultra Music Festival",
+  "emails" : ["ultramusic@gmail.com"]
 }
 {
-  "name" : "Biber",
-  "emails" : ["justin.biber@gmail.com"]
-}
-{
-  "name" : "Calvin",
-  "emails" : ["calvin.harris@gmail.com"]
-}
-{
-  "name" : "Harris",
-  "emails" : ["calvin.harris@gmail.com"]
+  "name" : "Nick",
+  "emails" : ["nick.cave@gmail.com"]
 }
 {
   "name" : "Rihanna",
   "emails" : ["rihanna@gmail.com"]
 }
 {
-  "name" : "Lukas",
-  "emails" : ["acalukas@gmail.com"]
-}
-{
-  "name" : "Aca",
-  "emails" : ["acalukas@gmail.com"]
-}
-{
-  "name" : "Fenti",
-  "emails" : ["rihanna@gmail.com"]
+  "name" : "Snoop ",
+  "emails" : ["snoop.dog@gmail.com"]
 }
 {
   "name" : "Glastonbury",
   "emails" : ["glastonbury@gmail.com"]
+}
+{
+  "name" : "Nicky",
+  "emails" : ["nicky.romero@gmail.com"]
+}
+{
+  "name" : "Nisville",
+  "emails" : ["nisville@gmail.com"]
 }

@@ -1,50 +1,40 @@
 ﻿{
   "email" : "glastonbury@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "England",
-  "festivals" : null,
+  "city" : "Glastonbury",
   "firstname" : "Glastonbury",
+  "following" : ["glastonbury@gmail.com"],
   "password" : "glastonbury123",
   "picture" : "glastonbury.jpg"
 }
 {
   "email" : "coachella@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "USA",
-  "festivals" : null,
+  "city" : "Indio",
   "firstname" : "Coachella",
+  "following" : ["coachella@gmail.com", "david.guetta@gmail.com", "exit@gmail.com", "rihanna@gmail.com", "nina.kraviz@gmail.com", "nicky.romero@gmail.com", "nisville@gmail.com", "wiz.khalifa@gmail.com"],
   "password" : "coachella123",
-  "picture" : "coachella.jpg"
+  "picture" : "Coachella.JPG"
 }
 {
   "email" : "exit@gmail.com",
-  "artists" : null,
-  "calendar" : null,
   "city" : "Novi Sad",
-  "festivals" : null,
   "firstname" : "Exit",
+  "following" : ["exit@gmail.com", "coachella@gmail.com", "david.guetta@gmail.com", "nicky.romero@gmail.com", "nina.kraviz@gmail.com", "nick.cave@gmail.com"],
   "password" : "exit123",
   "picture" : "exit.jpg"
 }
 {
-  "email" : "love.fest@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "Trstenik",
-  "festivals" : null,
-  "firstname" : "LoveFest",
-  "password" : "love123",
-  "picture" : "LoveFest.jpg"
+  "email" : "nisville@gmail.com",
+  "city" : "Nis",
+  "firstname" : "Nisville",
+  "following" : ["nisville@gmail.com"],
+  "password" : "nisville123",
+  "picture" : "nisville.jpg"
 }
 {
-  "email" : "tomorrowland@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "Belgium",
-  "festivals" : null,
-  "firstname" : "Tomorrowland",
-  "password" : "tomorrowland123",
-  "picture" : "Tomorrowland.jpg"
+  "email" : "ultramusic@gmail.com",
+  "city" : "Singapore",
+  "firstname" : "Ultra Music Festival",
+  "following" : ["ultramusic@gmail.com"],
+  "password" : "ultramusic123",
+  "picture" : "ultra.jpg"
 }

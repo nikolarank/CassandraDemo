@@ -1,84 +1,110 @@
 ﻿{
-  "email" : "justin.biber@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "New York City",
-  "festivals" : null,
-  "firstname" : "Justin",
-  "lastname" : "Biber",
-  "nickname" : "JustBib",
-  "password" : "justin123",
-  "picture" : "JustinBieber.jpg"
+  "email" : "jeff.mills@gmail.com",
+  "city" : "London",
+  "firstname" : "Jeff",
+  "following" : ["jeff.mills@gmail.com", "david.guetta@gmail.com", "ellie.goulding@gmail.com", "nisville@gmail.com"],
+  "lastname" : "Mills",
+  "nickname" : "Jeff",
+  "password" : "jeff123",
+  "picture" : "jeffmills.jpg"
 }
 {
-  "email" : "calvin.harris@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "Bangaldesh",
-  "festivals" : null,
-  "firstname" : "Calvin",
-  "lastname" : "Harris",
-  "nickname" : "Cal",
-  "password" : "calvin123",
-  "picture" : "CalvinHarris.jpg"
+  "email" : "ellie.goulding@gmail.com",
+  "city" : "London",
+  "firstname" : "Ellie",
+  "following" : ["ellie.goulding@gmail.com"],
+  "lastname" : "Goulding",
+  "nickname" : "Ellie",
+  "password" : "ellie123",
+  "picture" : "llie-goulding.jpg"
 }
 {
-  "email" : "acalukas@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "Beograd",
-  "festivals" : null,
-  "firstname" : "Aca",
-  "lastname" : "Lukas",
-  "nickname" : "Aca",
-  "password" : "aca123",
-  "picture" : "AcaLukas.jpg"
+  "email" : "wiz.khalifa@gmail.com",
+  "city" : "LA",
+  "firstname" : "Wiz",
+  "following" : ["wiz.khalifa@gmail.com"],
+  "lastname" : "Khalifa",
+  "nickname" : "Wiz",
+  "password" : "wiz123",
+  "picture" : "wiz.jpg"
+}
+{
+  "email" : "nicky.romero@gmail.com",
+  "city" : "Amsterdam",
+  "firstname" : "Nicky",
+  "following" : ["nicky.romero@gmail.com"],
+  "lastname" : "Romero",
+  "nickname" : "Nicky",
+  "password" : "nicky123",
+  "picture" : "nicky-romero.jpg"
+}
+{
+  "email" : "nina.kraviz@gmail.com",
+  "city" : "Moscow",
+  "firstname" : "Nina",
+  "following" : ["nina.kraviz@gmail.com"],
+  "lastname" : "Kraviz",
+  "nickname" : "Nina",
+  "password" : "nina123",
+  "picture" : "nina-kraviz.jpg"
 }
 {
   "email" : "david.guetta@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "New York City",
-  "festivals" : null,
+  "city" : "Paris",
   "firstname" : "David",
+  "following" : ["david.guetta@gmail.com", "exit@gmail.com", "coachella@gmail.com", "nicky.romero@gmail.com", "nina.kraviz@gmail.com", "jeff.mills@gmail.com"],
   "lastname" : "Guetta",
-  "nickname" : "Geta",
+  "nickname" : "David",
   "password" : "david123",
-  "picture" : "DavidGuetta.jpg"
+  "picture" : "David-Guetta.jpg"
 }
 {
   "email" : "rihanna@gmail.com",
-  "artists" : null,
-  "calendar" : null,
   "city" : "Barbados",
-  "festivals" : null,
   "firstname" : "Rihanna",
+  "following" : ["rihanna@gmail.com"],
   "lastname" : "Fenti",
   "nickname" : "Rihanna",
-  "password" : "rihanna",
-  "picture" : "Rihanna.jpg"
+  "password" : "rihanna123",
+  "picture" : "rihanna.jpg"
 }
 {
-  "email" : "eric.clapton@gmail.com",
-  "artists" : null,
-  "calendar" : null,
-  "city" : "Tihuanna",
-  "festivals" : null,
-  "firstname" : "Eric",
-  "lastname" : "Clapton",
-  "nickname" : "Ericc",
-  "password" : "eric123",
-  "picture" : "EricClapton.jpg"
+  "email" : "snoop.dog@gmail.com",
+  "city" : "LA",
+  "firstname" : "Snoop ",
+  "following" : ["snoop.dog@gmail.com"],
+  "lastname" : "Dogg",
+  "nickname" : "Snoop ",
+  "password" : "snoop123",
+  "picture" : "snoop-dogg.jpg"
 }
 {
-  "email" : "david.bowie@gmail.com",
-  "artists" : null,
-  "calendar" : null,
+  "email" : "bon.jovi@gmail.com",
   "city" : "New York City",
-  "festivals" : null,
-  "firstname" : "David",
-  "lastname" : "Bowie",
-  "nickname" : "DavidB",
-  "password" : "bowie123",
-  "picture" : "DavidBowie.jpg"
+  "firstname" : "Bon",
+  "following" : ["bon.jovi@gmail.com"],
+  "lastname" : "Jovi",
+  "nickname" : "Bon",
+  "password" : "bon123",
+  "picture" : "Jon-Bon.jpg"
+}
+{
+  "email" : "nick.cave@gmail.com",
+  "city" : "Warracknabeal",
+  "firstname" : "Nick",
+  "following" : ["nick.cave@gmail.com"],
+  "lastname" : "Cave",
+  "nickname" : "Nick",
+  "password" : "nick123",
+  "picture" : "Nick-Cave.jpg"
+}
+{
+  "email" : "black.coffie@gmail.com",
+  "city" : "Cape Town",
+  "firstname" : "Black",
+  "following" : ["black.coffie@gmail.com"],
+  "lastname" : "Coffee",
+  "nickname" : "Black",
+  "password" : "black123",
+  "picture" : "blackcoffee.jpg"
 }
