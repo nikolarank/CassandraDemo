@@ -153,11 +153,6 @@
                                 @Html.HiddenFor(m => m.lastname)
                                 @Html.HiddenFor(m => m.nickname)
                                 
-                                @*@{ 
-                                    
-                                    ViewBag.Postovi = Model.posts.ToList();
-                                }*@
-                                
                                 
 
 
@@ -167,18 +162,20 @@
                                 {
                                         @Html.HiddenFor(m => m.posts[i].email);
                                         @Html.HiddenFor(m => m.posts[i].firstname);
-                                    for (int j = 0; j < Model.posts[i].images.Count; j++)
-                                    {
-                                        @Html.HiddenFor(m => m.posts[i].images[j]);
-                                    }
+                                        for (int j = 0; j < Model.posts[i].images.Count; j++)
+                                        {
+                                            @Html.HiddenFor(m => m.posts[i].images[j]);
+                                        }
                              
                                         @Html.HiddenFor(m => m.posts[i].lastname);
                                         @Html.HiddenFor(m => m.posts[i].profilepic);
                                         @Html.HiddenFor(m => m.posts[i].text);
                                         @Html.HiddenFor(m => m.posts[i].time);
+                                        @Html.HiddenFor(m => m.posts[i].likes);
+                                        @Html.HiddenFor(m => m.posts[i].post_id);
                                 }
                                 
-                                <button class="w3-btn w3-theme"><i class="fa fa-pencil"></i>  Post</button>
+                                <button class="w3-btn w3-theme" style="margin-top:5px;"><i class="fa fa-pencil"></i>  Post</button>
                             </div>
                                     }
                         </div>
@@ -189,11 +186,54 @@
                 @for(int i = Model.posts.Count - 1; i > -1; i--)
                 {
                     <div class="w3-container w3-card-2 w3-white w3-round w3-margin cont">
-                        <br>
                         @*<img src=@Model.ReturnPicInBase64("~/Content/profilePictures/", Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">*@
                         <img src=@Model.ReturnPic(@Request.Url.GetLeftPart(UriPartial.Authority),Model.posts[i].profilepic) alt="Avatar" class="w3-left w3-margin-right" style="width:60px">
                         <span class="w3-right w3-opacity">@Model.posts[i].time</span>
-                        <h4>@Model.posts[i].firstname @if (Model.posts[i].lastname != null) {@Model.posts[i].lastname}</h4><br>
+
+                        <h4>
+                            @Model.posts[i].firstname 
+                            @if (Model.posts[i].lastname != null) {@Model.posts[i].lastname}
+                        </h4>
+
+                        <form method="post" action="@Url.Action("DeletePost", "Home")">  
+                            @*//prosledjujemo ceo model kontroleru*@
+                            @Html.HiddenFor(m => m.email)
+                            @Html.HiddenFor(m => m.password)
+                            @Html.HiddenFor(m => m.picture)
+                            @Html.HiddenFor(m => m.city)
+                            @Html.HiddenFor(m => m.firstname)
+                            @Html.HiddenFor(m => m.calendar)
+                            @Html.HiddenFor(m => m.lastname)
+                            @Html.HiddenFor(m => m.nickname)
+
+                            @for (int p = 0; p < Model.posts.Count; p++)
+                            {
+                                @Html.HiddenFor(m => m.posts[p].email)
+                                @Html.HiddenFor(m => m.posts[p].firstname)
+                                
+                                for (int q = 0; q < Model.posts[p].images.Count; q++)
+                                {
+                                    @Html.HiddenFor(m => m.posts[p].images[q]);
+                                
+                                }
+                                
+                                @Html.HiddenFor(m => m.posts[p].lastname);
+                                @Html.HiddenFor(m => m.posts[p].profilepic);
+                                @Html.HiddenFor(m => m.posts[p].text);
+                                @Html.HiddenFor(m => m.posts[p].time);
+                                @Html.HiddenFor(m => m.posts[p].likes);
+                                @Html.HiddenFor(m => m.posts[p].post_id);
+                            }
+
+                            <input type="hidden" name="deletePostId" value="@Model.posts[i].post_id" /> 
+                            <input type="hidden" name="deletePostEmail" value="@Model.posts[i].email" /> 
+
+                            @if (Model.posts[i].email == Model.email)
+                            {
+                                <button class="w3-btn w3-theme-d2 w3-margin-bottom" style="float:right;"><i class="fa fa-trash-o fa-lg"></i> Delete Post</button>
+                            }
+                        </form>
+
                         <hr class="w3-clear">
                         <p>@Model.posts[i].text</p>
 
@@ -211,7 +251,7 @@
                             }
                         </div>
                         <br>
-                            <p id='@Model.posts[i].post_id'>@Model.posts[i].likes</p>
+                        <p id='@Model.posts[i].post_id'>@Model.posts[i].likes</p>
                         <br>
                         <button type="button" onclick="like('@Model.posts[i].post_id', '@Model.posts[i].email')" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                         @*<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>*@

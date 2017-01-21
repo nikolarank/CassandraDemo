@@ -17,6 +17,7 @@ namespace PlanArtMVC.Controllers
         // GET: /LogIn/
         public ActionResult LogIn()
         {
+            CreateKeySpace.Create();
             LogInModel model = new LogInModel();
             return View(model);
         }

@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateKeySpace.cs" />
     <Compile Include="Data Access\ArtistFestivalSearchs.cs" />
     <Compile Include="Data Access\Artists.cs" />
     <Compile Include="Data Access\Events.cs" />
