@@ -1,0 +1,24 @@
+﻿{
+  "email" : "david.guetta@gmail.com",
+  "time" : ISODate("2017-01-10T19:30:00Z"),
+  "fest_pic" : "Coachella.JPG",
+  "festival" : "Coachella"
+}
+{
+  "email" : "david.guetta@gmail.com",
+  "time" : ISODate("2017-01-14T19:20:00Z"),
+  "fest_pic" : "glastonbury.jpg",
+  "festival" : "Glastonbury"
+}
+{
+  "email" : "david.guetta@gmail.com",
+  "time" : ISODate("2017-01-31T09:10:00Z"),
+  "fest_pic" : "ultra.jpg",
+  "festival" : "Ultra Music Festival"
+}
+{
+  "email" : "david.guetta@gmail.com",
+  "time" : ISODate("2017-08-18T12:14:00Z"),
+  "fest_pic" : "exit.jpg",
+  "festival" : "Exit"
+}
