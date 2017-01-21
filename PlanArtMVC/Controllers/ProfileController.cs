@@ -16,7 +16,6 @@ namespace PlanArtMVC.Controllers
         {
             ProfileModel profileModel = new ProfileModel();
             profileModel.events = EventsCache.GetFromRedis(homeModel.email, 0, 7);
-            profileModel.calendar = homeModel.calendar;
             profileModel.city = homeModel.city;
             profileModel.email = homeModel.email;
             profileModel.firstname = homeModel.firstname;

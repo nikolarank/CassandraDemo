@@ -8,8 +8,7 @@ namespace PlanArt.QueryEntities
 {
     public class Artist
     {
-        public string email { get; set; } // 
-        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } //
+        public string email { get; set; } //
         public string city { get; set; } //
         public string lastname { get; set; } //
         public string firstname { get; set; } //

@@ -8,7 +8,6 @@ namespace PlanArtMVC.Models
 {
     public class FestivalModel
     {
-        public SortedDictionary<DateTime, List<Performance>> calendar { get; set; } //
         public string city { get; set; } //
         public string email { get; set; } //
         public string password { get; set; } //

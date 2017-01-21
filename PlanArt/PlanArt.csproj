@@ -90,7 +90,6 @@
     <Compile Include="QueryEntities\Artist.cs" />
     <Compile Include="QueryEntities\ArtistFestivalSearch.cs" />
     <Compile Include="QueryEntities\Festival.cs" />
-    <Compile Include="QueryEntities\Performance.cs" />
     <Compile Include="QueryEntities\Picture.cs" />
     <Compile Include="QueryEntities\TimeStampConverter.cs" />
     <Compile Include="SessionManager.cs" />
