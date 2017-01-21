@@ -24,6 +24,17 @@ namespace PlanArt.Data_Access
                   "  values ('" + post.email + "', " + TimeUuid.NewId().ToString() + ", '" +  post.firstname + "','" + post.lastname + "'," + post.likes + ",'" + post.text + "','" + post.profilepic + "','" + (TimeStampConverter.ConvertToTimeStamp(DateTime.Now)).ToString() + "'," + json + ");");
         }
 
+        public static void Delete(string id, string email)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+            System.Guid guid = System.Guid.Parse(id);
+            TimeUuid cuid = guid; 
+            RowSet Data = session.Execute("delete from \"Post\" where \"post_id\"=" + cuid + " and email ='" + email + "';");
+        }
+
         public static void Like(string id, string email)
         {
             ISession session = SessionManager.GetSession();

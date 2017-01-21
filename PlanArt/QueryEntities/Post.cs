@@ -16,7 +16,7 @@ namespace PlanArt.Data_Access
         public string profilepic { get; set; }
         public string text { get; set; }
         public List<string> images{ get; set; }
-        public int likes;
+        public int likes { get; set; }
         public string post_id { get; set; }
 
         public Post()

@@ -136,7 +136,6 @@ namespace PlanArtMVC.Controllers
         [HttpPost]
         public ActionResult Post(IEnumerable<HttpPostedFileBase> files, HomeModel homeModel)
         {
-            string p = Request.Url.GetLeftPart(UriPartial.Authority);
             List<string> lista = new List<string>();
             foreach (var file in files)
             {
@@ -156,6 +155,13 @@ namespace PlanArtMVC.Controllers
             //Posts.Add(homeModel.myPost);
             PostsCache.AddPost(homeModel.myPost);
 
+            return View("~/Views/Home/Home.cshtml", homeModel);
+        }
+
+        public ActionResult DeletePost(HomeModel homeModel, string deletePostId, string deletePostEmail)
+        {
+            homeModel.posts.RemoveAll(post => post.post_id == deletePostId);
+            Posts.Delete(deletePostId, deletePostEmail);
             return View("~/Views/Home/Home.cshtml", homeModel);
         }
 
