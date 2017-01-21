@@ -70,14 +70,6 @@
                 <!-- Accordion -->
                 <div class="w3-card-2 w3-round">
                     <div class="w3-accordion w3-white">
-                        <button onclick="myFunction('Demo1')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-                        <div id="Demo1" class="w3-accordion-content w3-container">
-                            <p>Some text..</p>
-                        </div>
-                        <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-                        <div id="Demo2" class="w3-accordion-content w3-container">
-                            <p>Some other text..</p>
-                        </div>
                         <button onclick="myFunction('Demo3')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
                         <div id="Demo3" class="w3-accordion-content w3-container">
                             <div class="w3-row-padding">
@@ -139,7 +131,6 @@
                         @using (Html.BeginForm("Post", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             <div class="w3-container w3-padding">
-                                <h6 class="w3-opacity">Social Media template by w3.css</h6>
                                 
                                 @Html.HiddenFor(m => m.myPost.text, new { @id = "post_hidden", @class = "w3-border w3-padding", @name = "text", @placeholder = "text", @style = "width:1000px;" })
                                
@@ -206,21 +197,21 @@
                         <hr class="w3-clear">
                         <p>@Model.posts[i].text</p>
 
-                        <div class="w3-content w3-display-container class='@(Model.posts[i].email + Model.posts[i].time)'">
+                        <div class="w3-content w3-display-container class='@(Model.posts[i].post_id)'">
                             @foreach (var img in Model.posts[i].images)
                             {
-                                <img class='@(Model.posts[i].email + Model.posts[i].time)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
+                                <img class='@(Model.posts[i].post_id)' src=@Model.ReturnPicInBase64("~/Content/postedPictures/", img) style="width:100%">
                             } 
 
 
                             @if (Model.posts[i].images.Count > 1)
                             {
-                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(Model.posts[i].email + Model.posts[i].time)')">&#10094;</a>
-                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].email + Model.posts[i].time)')">&#10095;</a>
+                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, '@(Model.posts[i].post_id)')">&#10094;</a>
+                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, '@(Model.posts[i].post_id)')">&#10095;</a>
                             }
                         </div>
                         <br>
-                            <p id=@Model.posts[i].post_id>@Model.posts[i].likes</p>
+                            <p id='@Model.posts[i].post_id'>@Model.posts[i].likes</p>
                         <br>
                         <button type="button" onclick="like('@Model.posts[i].post_id', '@Model.posts[i].email')" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                         @*<button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>*@
@@ -337,12 +328,12 @@
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.editUserUrl = '@Url.Action("Like", "Home")';
     </script>
-    <script src="~/Scripts/like.js"></script>
-    <script src="~/Scripts/InfiniteScrollllllll.js"></script>
+    <script src="~/Scripts/likes.js"></script>
+    <script src="~/Scripts/Infinite_Scroll.js"></script>
     <script type="text/javascript">
 
      var yourApp1 = yourApp1 || {};
-     yourApp1.Urls = yourApp.Urls || {};
+     yourApp1.Urls = yourApp1.Urls || {};
      yourApp1.Urls.baseUrl = '@Url.Content("~")';
      yourApp1.Urls.editUserUrl = '@Url.Action("FetchData", "Home")';
 
